@@ -1,0 +1,57 @@
+#NavBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  height: 50px;
+  background-color: red;
+}
+
+#NavBar img {
+  border-radius: 50%;
+  height: 40px;
+  margin: auto;
+}
+
+#NavBar>div {
+  background-color: white;
+  padding: 0 10px;
+  display: flex;
+  font-size: 30px;
+}
+
+#NavBar>div p {
+  margin: auto;
+}
+
+#NavBar button {
+  margin: auto;
+  width: 150px;
+  font-size: 30px;
+  padding: 8px;
+  border: none;
+  background: none;
+  display: flex;
+  transition: all 0.3s ease-in;
+  border-radius: 20px;
+}
+
+#NavBar button:hover {
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  width: 500px;
+}
+
+#NavBar button div {
+  display: flex;
+  margin: auto;
+}
+
+#NavBar button #pizza {
+  transform: rotate(270deg);
+}
+
+#NavBar .icon {
+  color: white;
+}
