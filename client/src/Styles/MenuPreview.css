@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
+
+#menuPrv {
+  width: 100%;
+  height: 600px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  border-top: 5px solid black;
+  border-bottom: 5px solid black;
+  padding: 50px 0;
+  background-color: palegreen;
+}
+
+#menuPrv p {
+  margin: 0 auto 50px auto;
+  font-size: 50px;
+  font-family: 'Caveat', cursive;
+
+}
+
+#menuPrv #btns {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+#menuPrv #btns div {
+  width: 300px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+#menuPrv #btns button {
+  width: 300px;
+  height: 300px;
+  border: 2px black solid;
+  background-color: beige;
+}
+
+#menuPrv img {
+  width: 300px;
+  margin: auto;
+}

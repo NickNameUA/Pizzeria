@@ -1,7 +1,11 @@
 import React from "react";
-import NavBar from "./Components/NavBar";
+import Main from "./Pages/Main";
 
 const App = () => {
-  return <NavBar />;
+  return (
+    <>
+      <Main />
+    </>
+  );
 };
 export default App;

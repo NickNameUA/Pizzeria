@@ -1,46 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Bad+Script&display=swap');
+
 #NavBar {
-  position: fixed;
-  top: 0;
-  left: 0;
   display: flex;
   width: 100%;
-  height: 50px;
-  background-color: red;
+  height: 74px;
+  background-color: yellowgreen;
 }
 
 #NavBar img {
   border-radius: 50%;
-  height: 40px;
+  height: 74px;
   margin: auto;
 }
 
 #NavBar>div {
-  background-color: white;
-  padding: 0 10px;
   display: flex;
-  font-size: 30px;
-}
-
-#NavBar>div p {
-  margin: auto;
 }
 
 #NavBar button {
   margin: auto;
   width: 150px;
-  font-size: 30px;
+  font-size: 25px;
   padding: 8px;
   border: none;
   background: none;
   display: flex;
   transition: all 0.3s ease-in;
   border-radius: 20px;
+  font-family: 'Bad Script', cursive;
 }
 
 #NavBar button:hover {
   background: rgba(255, 255, 255, 0.5);
   cursor: pointer;
-  width: 500px;
+  width: 300px;
 }
 
 #NavBar button div {
