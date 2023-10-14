@@ -1,47 +1,147 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
 
-#sharesList #title {
-  text-align: center;
-  font-family: 'Caveat', cursive;
-  font-size: 50px;
-  margin: 0;
-  margin-top: 30px;
-  height: 100px;
-  border-bottom: 5px solid lime;
+
+@media screen and (min-width:1024px) {
+
+  #sharesList #title {
+    text-align: center;
+    font-family: 'Caveat', cursive;
+    font-size: 50px;
+    margin: 0;
+    margin-top: 30px;
+    height: 100px;
+    border-bottom: 5px solid lime;
+  }
+
+  .share {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-top: none;
+    border: 5px solid lime;
+    border-top: none;
+    background-color: yellow;
+    box-sizing: border-box;
+  }
+
+  .share .title {
+    font-size: 45px;
+    text-align: center;
+    font-family: 'Caveat', cursive;
+  }
+
+  .share .text {
+    font-size: 35px;
+    text-align: center;
+    font-family: 'Caveat', cursive;
+    padding: 0 10px;
+  }
+
+  .share div {
+    display: flex;
+    background-color: white;
+    border-top: 5px solid lime;
+  }
+
+  .share div img {
+    width: 300px;
+    border-right: 5px solid lime;
+  }
 }
 
-.share {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  border-top: none;
-  border: 5px solid lime;
-  border-top: none;
-  background-color: yellow;
-  box-sizing: border-box;
+@media screen and (min-width:767px) and (max-width:1024px) {
+  #sharesList #title {
+    text-align: center;
+    font-family: 'Caveat', cursive;
+    font-size: 50px;
+    margin: 0;
+    margin-top: 30px;
+    height: 100px;
+    border-bottom: 5px solid lime;
+  }
+
+  .share {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-top: none;
+    border: 5px solid lime;
+    border-top: none;
+    background-color: yellow;
+    box-sizing: border-box;
+  }
+
+  .share .title {
+    font-size: 35px;
+    text-align: center;
+    font-family: 'Caveat', cursive;
+  }
+
+  .share .text {
+    font-size: 25px;
+    text-align: center;
+    font-family: 'Caveat', cursive;
+    padding: 0 10px;
+  }
+
+  .share div {
+    display: flex;
+    background-color: white;
+    border-top: 5px solid lime;
+  }
+
+  .share div img {
+    width: 200px;
+    border-right: 5px solid lime;
+  }
 }
 
-.share .title {
-  font-size: 45px;
-  text-align: center;
-  font-family: 'Caveat', cursive;
-}
+@media screen and (max-width:767px) {
+  #sharesList #title {
+    text-align: center;
+    font-family: 'Caveat', cursive;
+    font-size: 50px;
+    margin: 0;
+    margin-top: 30px;
+    height: 100px;
+    border-bottom: 5px solid lime;
+  }
 
-.share .text {
-  font-size: 35px;
-  text-align: center;
-  font-family: 'Caveat', cursive;
-  padding: 0 10px;
-}
+  .share {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-top: none;
+    border: 5px solid lime;
+    border-top: none;
+    background-color: yellow;
+    box-sizing: border-box;
+  }
 
-.share div {
-  display: flex;
-  background-color: white;
-  border-top: 5px solid lime;
-}
+  .share .title {
+    font-size: 35px;
+    text-align: center;
+    font-family: 'Caveat', cursive;
+  }
 
-.share div img {
-  width: 300px;
-  border-right: 5px solid lime;
+  .share .text {
+    font-size: 25px;
+    text-align: center;
+    font-family: 'Caveat', cursive;
+    padding: 0 10px;
+  }
+
+  .share div {
+    display: flex;
+    background-color: white;
+    border-top: 5px solid lime;
+  }
+
+  .share div img {
+    width: 200px;
+    border-right: 5px solid lime;
+  }
 }

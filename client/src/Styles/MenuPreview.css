@@ -43,3 +43,32 @@
   width: 300px;
   margin: auto;
 }
+
+@media screen and (min-width:767px) and (max-width:1024px) {
+  #menuPrv #btns button {
+    width: 100%;
+  }
+
+  #menuPrv img {
+    width: 100%;
+  }
+
+  #menuPrv #btns div {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width:767px) {
+
+  #menuPrv #btns button {
+    width: 100%;
+  }
+
+  #menuPrv img {
+    width: 100%;
+  }
+
+  #menuPrv #btns div {
+    width: 100%;
+  }
+}

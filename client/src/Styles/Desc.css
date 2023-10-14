@@ -5,53 +5,161 @@
   display: flex;
 }
 
-#desc div {
-  width: 40%;
-  display: flex;
+@media screen and (min-width:1024px) {
+  #desc div {
+    width: 40%;
+    display: flex;
+  }
+
+  #desc #descPhoto {
+    margin: auto;
+    margin-left: 0px;
+    width: fit-content;
+  }
+
+  #desc #descText {
+    flex-direction: column;
+    margin: auto;
+    margin-left: 0;
+    font-family: 'Caveat', cursive;
+    padding: 3px 0;
+  }
+
+  #desc div p {
+    font-size: 25px;
+  }
+
+  #desc div #photo {
+    height: 800px;
+    margin: 0 auto;
+  }
+
+  #desc #logo {
+    width: 30%;
+  }
+
+  #desc div div {
+    display: flex;
+    width: 100%;
+  }
+
+  #desc div div * {
+    margin: auto;
+    font-size: 30px;
+  }
+
+  #desc #menuBtn {
+    width: fit-content;
+    border-radius: 10px;
+    font-size: 25px;
+    margin: 0 auto;
+    color: black;
+    border: black 2px dotted;
+  }
 }
 
-#desc #descPhoto {
-  margin: auto;
-  margin-left: 0px;
-  width: fit-content;
+@media screen and (min-width:767px) and (max-width:1024px) {
+  #desc div {
+    width: 47%;
+    display: flex;
+  }
+
+  #desc #descPhoto {
+    margin: auto;
+    margin-left: 0px;
+    width: 47%;
+  }
+
+  #desc #descText {
+    flex-direction: column;
+    margin: auto;
+    margin-left: 0;
+    font-family: 'Caveat', cursive;
+    padding: 3px 0;
+  }
+
+  #desc div p {
+    font-size: 20px;
+  }
+
+  #desc div #photo {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  #desc #logo {
+    width: 20%;
+  }
+
+  #desc div div {
+    display: flex;
+    width: 100%;
+  }
+
+  #desc div div * {
+    margin: auto;
+    font-size: 25px;
+  }
+
+  #desc #menuBtn {
+    width: fit-content;
+    border-radius: 10px;
+    font-size: 20px;
+    margin: 0 auto;
+    color: black;
+    border: black 2px dotted;
+  }
 }
 
-#desc #descText {
-  flex-direction: column;
-  margin: auto;
-  margin-left: 0;
-  font-family: 'Caveat', cursive;
-  padding: 3px 0;
-}
+@media screen and (max-width:767px) {
+  #desc div {
+    width: 47%;
+    display: flex;
+  }
 
-#desc div p {
-  font-size: 25px;
-}
+  #desc #descPhoto {
+    margin: auto;
+    margin-left: 0px;
+    width: 47%;
+  }
 
-#desc div #photo {
-  height: 800px;
-  margin: 0 auto;
-}
+  #desc #descText {
+    flex-direction: column;
+    margin: auto;
+    margin-left: 0;
+    font-family: 'Caveat', cursive;
+    padding: 3px 0;
+  }
 
-#desc #logo {
-  width: 30%;
-}
+  #desc div p {
+    font-size: 15px;
+  }
 
-#desc div div {
-  display: flex;
-  width: 100%;
-}
+  #desc div #photo {
+    width: 100%;
+    margin: 0 auto;
+  }
 
-#desc div div * {
-  margin: auto;
-  font-size: 30px;
-}
+  #desc #logo {
+    width: 20%;
+  }
 
-#desc #menuBtn {
-  width: fit-content;
-  border-radius: 10px;
-  font-size: 25px;
-  margin: 0 auto;
-  color: black;
-  border: black 2px dotted;
+  #desc div div {
+    display: flex;
+    width: 100%;
+  }
+
+  #desc div div * {
+    margin: auto;
+    font-size: 20px;
+  }
+
+  #desc #menuBtn {
+    width: fit-content;
+    border-radius: 10px;
+    font-size: 20px;
+    margin: 0 auto;
+    color: black;
+    border: black 2px dotted;
+  }
 }
