@@ -6,33 +6,34 @@ import LocalPizzaIcon from "@mui/icons-material/LocalPizza";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import StorefrontIcon from "@mui/icons-material/Storefront";
 import GradeIcon from "@mui/icons-material/Grade";
+import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
   return (
     <div id="NavBar">
       <button>
-        <div>
+        <NavLink to="menu">
           <LocalPizzaIcon id="pizza" className="icon" sx={{ fontSize: 40 }} />
           Меню
-        </div>
+        </NavLink>
       </button>
       <button>
-        <div>
+        <NavLink to="menu">
           <GradeIcon className="icon" sx={{ fontSize: 40 }} />
           Відгуки
-        </div>
+        </NavLink>
       </button>
       <button>
-        <div>
+        <NavLink to="menu">
           <StorefrontIcon className="icon" sx={{ fontSize: 40 }} />
           Піцеерії
-        </div>
+        </NavLink>
       </button>
       <button>
-        <div>
+        <NavLink to="menu">
           <ShoppingCartIcon className="icon" sx={{ fontSize: 40 }} />
           Кошик
-        </div>
+        </NavLink>
       </button>
     </div>
   );
