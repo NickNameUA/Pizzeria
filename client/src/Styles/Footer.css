@@ -15,23 +15,22 @@ footer .text {
   font-style: italic;
 }
 
+footer .category {
+  text-decoration: none;
+  color: white;
+  text-align: center;
+  font-style: italic;
+}
+
 @media screen and (min-width:1024px) {
   footer .category {
     font-size: 20px;
-    text-decoration: none;
-    color: white;
-    text-align: center;
-    font-style: italic;
   }
 }
 
 @media screen and (max-width:767px) {
   footer .category {
     font-size: 15px;
-    text-decoration: none;
-    color: white;
-    text-align: center;
-    font-style: italic;
   }
 
   footer .text {
