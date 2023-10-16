@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from "react";
-import MenuItem from "./MenuItem";
 import axios from "axios";
+
+import "../../Styles/Menu/MenuList.css";
+
+import MenuItem from "./MenuItem";
+
 const MenuList = () => {
   const [menu, setMenu] = useState([]);
+
   const getMenu = async () => {
     await axios
       .get("http://localhost:8080/api/get/pizza")
@@ -11,6 +16,7 @@ const MenuList = () => {
       })
       .catch((err) => console.log(err));
   };
+
   useEffect(() => {
     getMenu();
   });
