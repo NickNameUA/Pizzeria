@@ -1,7 +1,7 @@
 import React from "react";
-import "../Styles/SharesList.css";
+import "../../Styles/Main/SharesList.css";
 import Share from "./Share";
-import Photos from "./photos";
+import Photos from "../photos";
 
 const SharesList = () => {
   return (

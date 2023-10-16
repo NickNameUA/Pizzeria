@@ -3,4 +3,4 @@ client/build
 server/node_modules
 
 server/PizzaSchema.js
-server/.env
+server/index.env

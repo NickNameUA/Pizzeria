@@ -1,8 +1,8 @@
 import React from "react";
-import Photo from "../img/DescPhoto.jpg";
-import Logo from "../img/Logo.png";
+import Photo from "../../img/DescPhoto.jpg";
+import Logo from "../../img/Logo.png";
 
-import "../Styles/Desc.css";
+import "../../Styles/Main/Desc.css";
 import { Button } from "@mui/material";
 
 const Description = () => {

@@ -1,10 +1,10 @@
 import React from "react";
 
-import "../Styles/MenuPreview.css";
+import "../../Styles/Main/MenuPreview.css";
 import { Button } from "@mui/material";
-import Pizza from "../img/pizza.png";
-import Drinks from "../img/drinks.png";
-import Dessert from "../img/dessert.png";
+import Pizza from "../../img/pizza.png";
+import Drinks from "../../img/drinks.png";
+import Dessert from "../../img/dessert.png";
 
 const MenuPreview = () => {
   return (
