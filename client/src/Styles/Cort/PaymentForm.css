@@ -1,0 +1,76 @@
+:root {
+  --form-height: calc(100% - 74px)
+}
+
+#paymentForm {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  height: var(--form-height);
+  width: 30%;
+  background-color: lightsalmon;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-family: 'Caveat', cursive;
+}
+
+#paymentForm div {
+  margin: auto;
+  display: block;
+  font-size: 25px;
+  width: 80%;
+}
+
+#paymentForm div:first-child div {
+  display: flex;
+  width: 100%;
+}
+
+#paymentForm div #house {
+  width: 50%;
+}
+
+
+#paymentForm p {
+  font-size: 30px;
+  margin: 20px 0;
+}
+
+#paymentForm #select {
+  font-family: 'Caveat', bolt;
+  font-size: 25px;
+}
+
+#paymentForm input {
+  outline: none;
+  border: none;
+  font-size: 20px;
+  border-radius: 20px;
+  width: 100%;
+  font-family: 'Caveat', cursive;
+  text-align: center;
+}
+
+#paymentForm button {
+  outline: none;
+  border: 3px double greenyellow;
+  font-size: 18px;
+  color: greenyellow;
+  background-color: green;
+  border-radius: 20px;
+  width: 120px;
+  margin: 0 auto;
+  padding: 4px;
+  font-family: 'Caveat', cursive;
+  transition: all 1s;
+}
+
+#paymentForm button:hover {
+  width: 100%;
+  padding: 7px;
+  background-color: yellowgreen;
+  border: 3px double green;
+  color: green;
+
+}
