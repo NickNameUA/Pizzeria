@@ -146,7 +146,7 @@ const CardInputs = () => {
               <br />
               Спосіб оплати замовлення: {payMeth}
               <br />
-              Ціна: {cost}
+              Ціна: {cost}$
             </ul>
           </DialogContentText>
         </DialogContent>
