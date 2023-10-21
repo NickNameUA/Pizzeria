@@ -67,16 +67,16 @@ const CortItem = (props: Props) => {
         </span>
       </div>
       <div className="desc">
-        <p>Вага: {data != undefined && data.weight}г</p>
         {data != undefined && data.structure != undefined && (
           <>
             <p>Склад</p>
-            <ul>
+            <ul id="ul">
               {data.structure != undefined &&
                 data.structure.map((e: string) => <li key={e}>{e}</li>)}
             </ul>
           </>
         )}
+        <p>Вага: {data != undefined && data.weight}г</p>
         <Button
           className="delete"
           onClick={() => {

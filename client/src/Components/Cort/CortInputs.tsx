@@ -43,13 +43,6 @@ const CardInputs = () => {
     }
   };
 
-  window.onscroll = () => {
-    document.documentElement.style.setProperty(
-      "--form-height",
-      `calc(100% - ${window.scrollY <= 74 ? 74 - window.scrollY : 0}px)`
-    );
-  };
-
   let cos = 0;
   setInterval(() => {
     setCost(0);
@@ -60,6 +53,16 @@ const CardInputs = () => {
       cos += +val;
     }
     setCost(cos);
+
+    const navBar = document.querySelector("#NavBar") as any;
+    const height = getComputedStyle(navBar, null).height.replace(
+      "px",
+      ""
+    ) as any as number;
+    document.documentElement.style.setProperty(
+      "--form-height",
+      `calc(100% - ${window.scrollY <= height ? height - window.scrollY : 0}px)`
+    );
   }, 1);
   return (
     <form id="paymentForm">

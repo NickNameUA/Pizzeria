@@ -7,6 +7,7 @@ import EmptyCort from "./EmptyCort";
 const CortItemsList = () => {
   const [list, setList] = useState<string[]>([]);
   const [load, setLoad] = useState(false);
+  const [len, setLen] = useState(document.querySelectorAll(".cortItem").length);
 
   const arr = [] as any;
 
@@ -22,15 +23,18 @@ const CortItemsList = () => {
     setLoad(true);
   }
 
+  setInterval(() => {
+    if (len != document.querySelectorAll(".cortItem").length) {
+      setLen(document.querySelectorAll(".cortItem").length);
+    }
+  });
+
   return (
     <div id="cortItemsList">
-      {localStorage.length != 0 ? (
-        list.map((e: any) => {
-          return <CortItem name={e} key={e} />;
-        })
-      ) : (
-        <EmptyCort />
-      )}
+      {list.map((e: any) => {
+        return <CortItem name={e} key={e} />;
+      })}
+      {len == 0 && <EmptyCort />}
     </div>
   );
 };

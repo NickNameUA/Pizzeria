@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
 
-div.MuiBackdrop-root:area-hiden(true) {
-  display: none;
-}
-
 #cortItemsList {
   padding-top: 74px;
   display: flex;
@@ -23,6 +19,7 @@ div.MuiBackdrop-root:area-hiden(true) {
   display: flex;
   font-family: 'Caveat', cursive;
   margin: 10px auto;
+  min-width: 200px;
 }
 
 .cortItem img {
@@ -44,7 +41,7 @@ div.MuiBackdrop-root:area-hiden(true) {
 }
 
 .cortItem .desc * {
-  margin: auto 0;
+  margin: 0;
 }
 
 .cortItem p {
@@ -85,6 +82,7 @@ div.MuiBackdrop-root:area-hiden(true) {
 
 .cortItem .delete {
   margin: auto;
+  font-size: 12px;
   margin-bottom: 0;
   border-radius: 20px;
   border: 2px red solid;
@@ -101,4 +99,29 @@ div.MuiBackdrop-root:area-hiden(true) {
 
 .deletedItem {
   display: none;
+}
+
+@media screen and (max-width:767px) {
+  #cortItemsList {
+    width: 100%
+  }
+
+  .cortItem {
+    display: block;
+  }
+
+  .cortItem p,
+  .cortItem span,
+  .cortItem .countBtns button {
+    font-size: 20px;
+  }
+
+  .cortItem .delete {
+    font-size: 10px;
+    width: 160px;
+  }
+
+  .cortItem li {
+    font-size: 18px;
+  }
 }
