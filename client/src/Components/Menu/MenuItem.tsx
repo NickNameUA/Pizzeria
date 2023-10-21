@@ -12,6 +12,8 @@ const MenuItem = (props: Props) => {
   const [added, setAdded] = useState(
     localStorage.getItem(props.data.name) || "false"
   );
+  //Створюємо необхідні стейти
+
   const cortChange = () => {
     if (added == "false") {
       localStorage.setItem(props.data.name, "true");
@@ -21,6 +23,8 @@ const MenuItem = (props: Props) => {
       setAdded("false");
     }
   };
+  //Функція для додавання та вилучання позиції меню з замовлення
+
   return (
     <div className="menuItem">
       <p>{props.data.name}</p>

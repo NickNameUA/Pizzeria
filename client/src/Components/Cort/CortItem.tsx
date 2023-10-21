@@ -12,13 +12,9 @@ const CortItem = (props: Props) => {
   const [data, setData] = useState() as any;
   const [count, setCount] = useState(1);
   const [isDel, setIsDel] = useState(false);
+  //Створення необхідний стейтів
 
-  useEffect(() => {
-    if (data == undefined) {
-      getMenu();
-    }
-  });
-  const getMenu = async () => {
+  const getItem = async () => {
     await axios
       .post("http://localhost:8080/api/post/menu/item", {
         data: props.name,
@@ -29,10 +25,14 @@ const CortItem = (props: Props) => {
       .catch((err) => console.log(err));
   };
 
+  getItem();
+  //Отримання інформації про позицію меню з сервера
+
   const cortDelete = () => {
     localStorage.removeItem(props.name);
     setIsDel(true);
   };
+  //Видалення позиції менб з замовлення
 
   return (
     <div className={isDel ? "deletedItem" : "cortItem"}>

@@ -1,9 +1,10 @@
 import React from "react";
 import Photo from "../../img/DescPhoto.jpg";
 import Logo from "../../img/Logo.png";
+import { Link } from "react-router-dom";
+import { Button } from "@mui/material";
 
 import "../../Styles/Main/Desc.css";
-import { Button } from "@mui/material";
 
 const Description = () => {
   return (
@@ -33,7 +34,7 @@ const Description = () => {
           завжди актуально і завжди у тренді.
         </p>
         <Button variant="outlined" id="menuBtn">
-          Меню
+          <Link to="/menu">Меню</Link>
         </Button>
       </div>
     </div>

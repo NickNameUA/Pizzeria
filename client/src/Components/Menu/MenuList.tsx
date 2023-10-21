@@ -7,6 +7,7 @@ import MenuItem from "./MenuItem";
 
 const MenuList = () => {
   const [menu, setMenu] = useState([]);
+  //Створюємо стейт для меню
 
   const getMenu = async () => {
     await axios
@@ -16,10 +17,8 @@ const MenuList = () => {
       })
       .catch((err) => console.log(err));
   };
-
-  useEffect(() => {
-    getMenu();
-  });
+  getMenu();
+  //Отримуємо меню з сервера
 
   return (
     <div id="menuList">

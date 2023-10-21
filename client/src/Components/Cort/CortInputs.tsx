@@ -20,6 +20,7 @@ const CardInputs = () => {
   const [cost, setCost] = useState(0);
   const [open, setOpen] = useState(false);
   const [isValid, setIsValid] = useState(false);
+  //Створюємо необхідні стейти
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -28,6 +29,7 @@ const CardInputs = () => {
   const handleClose = () => {
     setOpen(false);
   };
+  //Функції для роботи з алертом
 
   const valid = () => {
     if (address != "" && house != "" && phoneNumb != "" && cost != 0) {
@@ -42,6 +44,7 @@ const CardInputs = () => {
       }
     }
   };
+  //Валідація інпутів
 
   let cos = 0;
   setInterval(() => {
@@ -53,6 +56,7 @@ const CardInputs = () => {
       cos += +val;
     }
     setCost(cos);
+    //Моніторинг та підрахування ціни заказу
 
     const navBar = document.querySelector("#NavBar") as any;
     const height = getComputedStyle(navBar, null).height.replace(
@@ -63,6 +67,7 @@ const CardInputs = () => {
       "--form-height",
       `calc(100% - ${window.scrollY <= height ? height - window.scrollY : 0}px)`
     );
+    //Моніторинг висоти навбара та зміна висоти блока інпутів
   }, 1);
   return (
     <form id="paymentForm">

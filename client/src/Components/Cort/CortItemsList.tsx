@@ -8,6 +8,7 @@ const CortItemsList = () => {
   const [list, setList] = useState<string[]>([]);
   const [load, setLoad] = useState(false);
   const [len, setLen] = useState(document.querySelectorAll(".cortItem").length);
+  //Створення необхідний стейтів
 
   const arr = [] as any;
 
@@ -22,12 +23,14 @@ const CortItemsList = () => {
     }
     setLoad(true);
   }
+  //Наповнення списку за допомогою сесії
 
   setInterval(() => {
     if (len != document.querySelectorAll(".cortItem").length) {
       setLen(document.querySelectorAll(".cortItem").length);
     }
-  });
+  }, 1);
+  //Перевірка наявності позицій меню у замовленні
 
   return (
     <div id="cortItemsList">
