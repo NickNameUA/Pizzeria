@@ -2,7 +2,6 @@
 
 #menuPrv {
   width: 100%;
-  height: 600px;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -16,44 +15,40 @@
   margin: 0 auto 50px auto;
   font-size: 50px;
   font-family: 'Caveat', cursive;
-
 }
 
 #menuPrv #btns {
   width: 100%;
   height: 100%;
   display: flex;
+  flex-wrap: wrap;
 }
 
 #menuPrv #btns div {
-  width: 300px;
   margin: auto;
   display: flex;
   flex-direction: column;
 }
 
 #menuPrv #btns button {
-  width: 300px;
-  height: 300px;
   border: 2px black solid;
   background-color: beige;
 }
 
 #menuPrv img {
   width: 300px;
+  height: 300px;
   margin: auto;
 }
 
-@media screen and (max-width:1024px) {
-  #menuPrv #btns button {
-    width: 100%;
+@media screen and (max-width:767px) {
+  #menuPrv p {
+    font-size: 30px;
   }
 
   #menuPrv img {
-    width: 100%;
-  }
-
-  #menuPrv #btns div {
-    width: 100%;
+    width: 200px;
+    height: 200px;
+    margin: auto;
   }
 }

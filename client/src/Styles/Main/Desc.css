@@ -125,6 +125,12 @@
 
   #desc #descPhoto {
     width: 47%;
+    display: none;
+  }
+
+  #desc #descText {
+    width: 80%;
+    margin: auto;
   }
 
   #desc div p {
