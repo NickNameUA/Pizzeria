@@ -1,69 +1,47 @@
 import React, { useEffect, useState } from "react";
-import Photos from "../photos";
+import getPhoto from "../photos";
 import { Button } from "@mui/material";
 
 interface Props {
-  key: number;
-  name: string;
-  cost: number;
-  time: number;
-  structure: any;
+  key: any;
+  data: any;
 }
 
 const MenuItem = (props: Props) => {
-  const [photo, setPhoto] = useState();
+  const [photo, setPhoto] = useState(getPhoto(props.data.name));
   const [added, setAdded] = useState(
-    localStorage.getItem(props.name) || "false"
+    localStorage.getItem(props.data.name) || "false"
   );
-  useEffect(() => {
-    switch (props.name) {
-      case "Пепероні":
-        setPhoto(Photos.peperoni);
-        break;
-      case "Гавайська":
-        setPhoto(Photos.hawaii);
-        break;
-      case "Чотири сири":
-        setPhoto(Photos.forCheases);
-        break;
-      case "Вегетаріанська":
-        setPhoto(Photos.vegetables);
-        break;
-      case "Гостра":
-        setPhoto(Photos.spicy);
-        break;
-      case "Чоловіча":
-        setPhoto(Photos.manPizza);
-        break;
-    }
-  });
   const cortChange = () => {
     if (added == "false") {
-      localStorage.setItem(props.name, "true");
+      localStorage.setItem(props.data.name, "true");
       setAdded("true");
     } else {
-      localStorage.setItem(props.name, "false");
+      localStorage.setItem(props.data.name, "false");
       setAdded("false");
     }
   };
-
   return (
     <div className="menuItem">
-      <p>{props.name}</p>
+      <p>{props.data.name}</p>
       <img src={photo} />
       <div>
-        <p>Ціна: {props.cost}$</p>
-        <p>Склад</p>
-        <ul>
-          {props.structure.map((e: string) => (
-            <li>{e}</li>
-          ))}
-        </ul>
+        <p>Ціна: {props.data.cost}$</p>
+        <p>Вага: {props.data.weight}г</p>
+        {props.data.structure != undefined && (
+          <>
+            <p>Склад</p>
+            <ul>
+              {props.data.structure.map((e: string) => (
+                <li>{e}</li>
+              ))}
+            </ul>
+          </>
+        )}
       </div>
       <div id="btnContainer">
-        <Button>Купити</Button>
         <Button
-          className={added == "false" ? "add" : "delete"}
+          className={added == "false" ? "btn add" : "btn delete"}
           onClick={() => {
             cortChange();
           }}

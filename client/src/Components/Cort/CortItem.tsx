@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
-import Photos from "../photos";
+import getPhoto from "../photos";
 import { Button } from "@mui/material";
 import axios from "axios";
 
@@ -8,32 +8,10 @@ interface Props {
 }
 
 const CortItem = (props: Props) => {
-  const [photo, setPhoto] = useState();
+  const [photo, setPhoto] = useState(getPhoto(props.name));
   const [data, setData] = useState() as any;
-  const [count, setCount] = useState(1) as any;
-
-  if (photo == undefined) {
-    switch (props.name) {
-      case "Пепероні":
-        setPhoto(Photos.peperoni);
-        break;
-      case "Гавайська":
-        setPhoto(Photos.hawaii);
-        break;
-      case "Чотири сири":
-        setPhoto(Photos.forCheases);
-        break;
-      case "Вегетаріанська":
-        setPhoto(Photos.vegetables);
-        break;
-      case "Гостра":
-        setPhoto(Photos.spicy);
-        break;
-      case "Чоловіча":
-        setPhoto(Photos.manPizza);
-        break;
-    }
-  }
+  const [count, setCount] = useState(1);
+  const [isDel, setIsDel] = useState(false);
 
   useEffect(() => {
     if (data == undefined) {
@@ -42,7 +20,7 @@ const CortItem = (props: Props) => {
   });
   const getMenu = async () => {
     await axios
-      .post("http://localhost:8080/api/post/pizzas", {
+      .post("http://localhost:8080/api/post/menu/item", {
         data: props.name,
       })
       .then((res) => {
@@ -53,10 +31,11 @@ const CortItem = (props: Props) => {
 
   const cortDelete = () => {
     localStorage.removeItem(props.name);
+    setIsDel(true);
   };
 
   return (
-    <div className={"cortItem"}>
+    <div className={isDel ? "deletedItem" : "cortItem"}>
       <div className="preVeiw">
         <p>{props.name}</p>
         <img src={photo} />
@@ -80,17 +59,24 @@ const CortItem = (props: Props) => {
           </button>
         </div>
         <span>
-          Ціна: <p className="cost">{data != undefined && data.cost * count}</p>
+          Ціна:
+          <p className="cost">
+            {data != undefined && (data.cost * count).toFixed(1)}
+          </p>
           $
         </span>
       </div>
       <div className="desc">
-        <p>Склад</p>
-        <ul>
-          {data != undefined &&
-            data.structure.map((e: string) => <li key={e}>{e}</li>)}
-        </ul>
-
+        <p>Вага: {data != undefined && data.weight}г</p>
+        {data != undefined && data.structure != undefined && (
+          <>
+            <p>Склад</p>
+            <ul>
+              {data.structure != undefined &&
+                data.structure.map((e: string) => <li key={e}>{e}</li>)}
+            </ul>
+          </>
+        )}
         <Button
           className="delete"
           onClick={() => {

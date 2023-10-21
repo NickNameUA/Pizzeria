@@ -115,7 +115,7 @@ const CardInputs = () => {
           <MenuItem value={"Криптовалютою"}>Криптовалютою</MenuItem>
         </Select>
       </div>
-      <p>Сумма замовлення: {cost}$</p>
+      <p>Сумма замовлення: {cost.toFixed(1)}$</p>
       <Button
         id="buyBtn"
         onClick={() => {

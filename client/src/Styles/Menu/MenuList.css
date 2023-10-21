@@ -8,6 +8,12 @@
   height: 100%;
 }
 
+#menuList h1 {
+  width: 100%;
+  font-family: 'Caveat', cursive;
+  text-align: center;
+  font-size: 50px;
+}
 
 .menuItem {
   margin: 10px auto;
@@ -20,8 +26,13 @@
   flex-direction: column;
 }
 
+.deletedItem {
+  display: none;
+}
+
 .menuItem img {
   width: 300px;
+  height: 300px;
   border-radius: 30%;
   background-color: white;
 }
@@ -35,6 +46,7 @@
 .menuItem>p {
   font-size: 40px;
   text-align: center;
+  width: 300px;
 }
 
 .menuItem #btnContainer {
@@ -50,16 +62,26 @@
   color: green;
 }
 
-
 .menuItem button.delete {
   border: 2px red solid;
+  background-color: pink;
   color: red;
+  width: 190px;
+  transition: all 0.5s;
 }
 
 .menuItem button.add {
-  border: 2px blue solid;
-  color: blue;
+  border: 2px yellowgreen solid;
+  background-color: green;
+  color: yellowgreen;
+  width: 180px;
+  transition: all 0.5s;
 }
+
+.menuItem button:hover {
+  opacity: 0.8;
+}
+
 
 .menuItem ul {
   margin: 0%;
@@ -69,5 +91,5 @@
 .menuItem li {
   list-style-type: circle;
   font-family: 'Caveat', cursive;
-  font-size: 20px;
+  font-size: 21px;
 }
