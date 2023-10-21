@@ -11,6 +11,7 @@ import {
   DialogContentText,
   DialogTitle,
 } from "@mui/material";
+import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
 
 const CardInputs = () => {
   const [address, setAddress] = useState("") as any;
@@ -20,6 +21,8 @@ const CardInputs = () => {
   const [cost, setCost] = useState(0);
   const [open, setOpen] = useState(false);
   const [isValid, setIsValid] = useState(false);
+  const [hide, setHide] = useState(false);
+  const [collection, setCollection] = useState("") as any;
   //Створюємо необхідні стейти
 
   const handleClickOpen = () => {
@@ -70,7 +73,16 @@ const CardInputs = () => {
     //Моніторинг висоти навбара та зміна висоти блока інпутів
   }, 1);
   return (
-    <form id="paymentForm">
+    <form id="paymentForm" className={hide ? "hide" : "visible"}>
+      <div
+        className={hide ? "hide" : "visible"}
+        id="arrow"
+        onClick={() => {
+          setHide(!hide);
+        }}
+      >
+        <KeyboardDoubleArrowDownIcon />
+      </div>
       <div>
         Адресa:
         <div>
