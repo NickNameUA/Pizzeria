@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import getPhoto from "../photos";
 import { Button } from "@mui/material";
 import axios from "axios";
+const url = process.env.SERVER_URL;
 
 interface Props {
   name: string;
@@ -9,14 +10,13 @@ interface Props {
 
 const CortItem = (props: Props) => {
   const [photo, setPhoto] = useState(getPhoto(props.name));
-  const [data, setData] = useState() as any;
+  const [data, setData] = useState("") as any;
   const [count, setCount] = useState(1);
   const [isDel, setIsDel] = useState(false);
   //Створення необхідний стейтів
-
   const getItem = async () => {
     await axios
-      .post("http://localhost:8080/api/post/menu/item", {
+      .post("https://inst-test-9c942bc3025d.herokuapp.com/api/post/menu/item", {
         data: props.name,
       })
       .then((res) => {
@@ -24,8 +24,9 @@ const CortItem = (props: Props) => {
       })
       .catch((err) => console.log(err));
   };
-
-  getItem();
+  if (data == "") {
+    getItem();
+  }
   //Отримання інформації про позицію меню з сервера
 
   const cortDelete = () => {

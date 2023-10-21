@@ -48,19 +48,7 @@ const CardInputs = () => {
     }
   };
   //Валідація інпутів
-
-  let cos = 0;
-  setInterval(() => {
-    setCost(0);
-    let collection = document.getElementsByClassName("cortItem");
-    cos = 0;
-    for (let i = 0; i < collection.length; i++) {
-      const val = collection[i].querySelector(".cost")?.innerHTML as any;
-      cos += +val;
-    }
-    setCost(cos);
-    //Моніторинг та підрахування ціни заказу
-
+  window.onscroll = () => {
     const navBar = document.querySelector("#NavBar") as any;
     const height = getComputedStyle(navBar, null).height.replace(
       "px",
@@ -70,7 +58,20 @@ const CardInputs = () => {
       "--form-height",
       `calc(100% - ${window.scrollY <= height ? height - window.scrollY : 0}px)`
     );
-    //Моніторинг висоти навбара та зміна висоти блока інпутів
+  };
+  //Моніторинг висоти навбара та зміна висоти блока інпутів}
+  setInterval(() => {
+    const coll = document.getElementsByClassName("cortItem");
+    if (coll != collection) {
+      let cos = 0;
+      for (let i = 0; i < coll.length; i++) {
+        const val = coll[i].querySelector(".cost")?.innerHTML as any;
+        cos += +val;
+      }
+      setCollection(coll);
+      setCost(cos);
+    }
+    //Моніторинг та підрахування ціни заказу
   }, 1);
   return (
     <form id="paymentForm" className={hide ? "hide" : "visible"}>
