@@ -33,7 +33,7 @@ const MenuItem = (props: Props) => {
             <p>Склад</p>
             <ul>
               {props.data.structure.map((e: string) => (
-                <li>{e}</li>
+                <li key={e}>{e}</li>
               ))}
             </ul>
           </>
