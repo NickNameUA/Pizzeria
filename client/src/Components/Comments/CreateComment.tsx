@@ -136,38 +136,40 @@ const CreateComment = () => {
   };
 
   return (
-    <div id="createComment">
-      <h1>Створити коментар</h1>
-      <div>
-        <p>Ім'я:</p>
-        <input
-          type="text"
-          onChange={(e) => {
-            setName(e.target.value);
-          }}
-        />
+    <div>
+      <div id="createComment">
+        <h1>Створити коментар</h1>
+        <div>
+          <p>Ім'я:</p>
+          <input
+            type="text"
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
+          />
+        </div>
+        <div>
+          <p>Текст коментару:</p>
+          <textarea
+            onChange={(e) => {
+              setText(e.target.value);
+            }}
+          />
+        </div>
+        <div className="starCon">
+          {getStar(1)}
+          {getStar(2)}
+          {getStar(3)}
+          {getStar(4)}
+          {getStar(5)}
+        </div>
+        <Button onClick={submit}>
+          <p>
+            Надіслати
+            <SendIcon />
+          </p>
+        </Button>
       </div>
-      <div>
-        <p>Текст коментару:</p>
-        <textarea
-          onChange={(e) => {
-            setText(e.target.value);
-          }}
-        />
-      </div>
-      <div className="starCon">
-        {getStar(1)}
-        {getStar(2)}
-        {getStar(3)}
-        {getStar(4)}
-        {getStar(5)}
-      </div>
-      <Button onClick={submit}>
-        <p>
-          Надіслати
-          <SendIcon />
-        </p>
-      </Button>
     </div>
   );
 };

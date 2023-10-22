@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
 
 #desc {
-  padding-top: 66px;
   border-top: 5px solid black;
   display: flex;
 }
@@ -81,10 +80,6 @@
 }
 
 @media screen and (min-width:767px) and (max-width:1024px) {
-  #desc {
-    padding-top: 55px;
-  }
-
   #desc div {
     width: 47%;
   }
@@ -115,10 +110,6 @@
 }
 
 @media screen and (max-width:767px) {
-  #desc {
-    padding-top: 49px;
-  }
-
   #desc div {
     width: 47%;
   }

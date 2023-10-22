@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
 
 #cortItemsList {
-  padding-top: 74px;
   display: flex;
   flex-wrap: wrap;
   width: 70%;

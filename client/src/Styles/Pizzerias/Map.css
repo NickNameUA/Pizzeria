@@ -42,10 +42,6 @@
 }
 
 @media screen and (min-width:1024px) {
-  #map {
-    padding-top: 74px;
-  }
-
   #map #mapBtns button {
     font-size: 20px;
   }
@@ -56,10 +52,6 @@
 }
 
 @media screen and (min-width:767px) and (max-width:1024px) {
-  #map {
-    padding-top: 64px;
-  }
-
   #map #mapBtns button {
     font-size: 15px;
   }
@@ -70,10 +62,6 @@
 }
 
 @media screen and (max-width:767px) {
-  #map {
-    padding-top: 54px;
-  }
-
   #map #mapBtns button {
     font-size: 15px;
     width: 130px;
