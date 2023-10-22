@@ -1,0 +1,41 @@
+#map {
+  padding-top: 66px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: auto;
+}
+
+#map h1 {
+  text-align: center;
+}
+
+#map iframe {
+  border: 5px solid black;
+  margin: auto;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+#map #mapBtns {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px 0;
+  background-color: yellowgreen;
+}
+
+#map #mapBtns button {
+  background: lightblue;
+  color: blue;
+  margin: auto;
+  border: double 3px black;
+  border-radius: 20px;
+  transition: all 1s;
+}
+
+#map #mapBtns button:hover {
+  background: blue;
+  color: lightblue;
+  border-color: white;
+}

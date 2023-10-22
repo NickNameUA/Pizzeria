@@ -31,7 +31,7 @@ const NavBar = () => {
         </NavLink>
       </button>
       <button>
-        <NavLink to="#">
+        <NavLink to="/pizzerias">
           <StorefrontIcon className="icon" sx={{ fontSize: 40 }} />
           Піцеерії
         </NavLink>
