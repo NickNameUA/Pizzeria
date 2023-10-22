@@ -1,5 +1,4 @@
 #map {
-  padding-top: 66px;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -8,6 +7,7 @@
 
 #map h1 {
   text-align: center;
+  font-family: 'Caveat', cursive;
 }
 
 #map iframe {
@@ -32,10 +32,54 @@
   border: double 3px black;
   border-radius: 20px;
   transition: all 1s;
+  font-family: 'Caveat', cursive;
 }
 
 #map #mapBtns button:hover {
   background: blue;
   color: lightblue;
   border-color: white;
+}
+
+@media screen and (min-width:1024px) {
+  #map {
+    padding-top: 74px;
+  }
+
+  #map #mapBtns button {
+    font-size: 20px;
+  }
+
+  #map h1 {
+    font-size: 40px;
+  }
+}
+
+@media screen and (min-width:767px) and (max-width:1024px) {
+  #map {
+    padding-top: 64px;
+  }
+
+  #map #mapBtns button {
+    font-size: 15px;
+  }
+
+  #map h1 {
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width:767px) {
+  #map {
+    padding-top: 54px;
+  }
+
+  #map #mapBtns button {
+    font-size: 15px;
+    width: 130px;
+  }
+
+  #map h1 {
+    font-size: 30px;
+  }
 }
