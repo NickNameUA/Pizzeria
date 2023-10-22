@@ -25,7 +25,7 @@ const NavBar = () => {
         </NavLink>
       </button>
       <button>
-        <NavLink to="#">
+        <NavLink to="/comments">
           <GradeIcon className="icon" sx={{ fontSize: 40 }} />
           Відгуки
         </NavLink>

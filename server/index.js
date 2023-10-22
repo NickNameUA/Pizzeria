@@ -466,6 +466,33 @@ const menu = [
   },
 ];
 
+const comments = [
+  {
+    id: 1,
+    name: "Богдан Тирон",
+    starCount: 5,
+    text: "Все сподобалось. Піца супер",
+  },
+  {
+    id: 2,
+    name: "Марія Гончарюк",
+    starCount: 4,
+    text: "Все чудово, але десерти занадто солодкі",
+  },
+  {
+    id: 3,
+    name: "Оксана Радиш",
+    starCount: 4,
+    text: "Обпеклася кавою, а так все смачно",
+  },
+  {
+    id: 4,
+    name: "Микола Франюк",
+    starCount: 5,
+    text: "Замовлення прийшло за 12хв",
+  },
+];
+
 app.get("/api/get/menu", async function (req, res) {
   // await mongoose.connect(process.env.DB_URL);
   // const menu = await Pizza.find();
@@ -484,6 +511,12 @@ app.post("/api/post/menu/item", async function (req, res) {
   //   await mongoose.disconnect();
 });
 
+app.get("/api/get/comments", async function (req, res) {
+  // await mongoose.connect(process.env.DB_URL);
+  // const menu = await Pizza.find();
+  res.send(comments).status(200);
+  //   await mongoose.disconnect();
+});
 app.listen(process.env.PORT, () => {
   console.log("Server started");
 });

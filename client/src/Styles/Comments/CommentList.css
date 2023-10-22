@@ -1,0 +1,36 @@
+#commentList {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  box-sizing: border-box;
+  margin: auto;
+  min-height: calc(100vh - 150px);
+}
+
+.commentItem {
+  border: 5px double black;
+  margin: auto;
+  padding: 10px;
+  width: fit-content;
+  background: lightgray;
+}
+
+.commentItem p {
+  text-align: center;
+  font-family: 'Caveat', cursive;
+  font-size: 20px;
+}
+
+.commentItem p.name {
+  font-size: 30px;
+}
+
+.starCon {
+  display: flex;
+  width: 100%;
+}
+
+.starCon * {
+  margin: auto;
+  color: darkgoldenrod;
+}
