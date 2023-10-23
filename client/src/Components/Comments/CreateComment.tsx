@@ -36,6 +36,7 @@ const CreateComment = () => {
       setName("");
       setText("");
       setSelected(0);
+      window.location.reload();
     }
   };
 
@@ -148,6 +149,7 @@ const CreateComment = () => {
         <div>
           <p>Ім'я:</p>
           <input
+            value={name}
             type="text"
             onChange={(e) => {
               setName(e.target.value);
@@ -157,6 +159,7 @@ const CreateComment = () => {
         <div>
           <p>Текст коментару:</p>
           <textarea
+            value={text}
             onChange={(e) => {
               setText(e.target.value);
             }}
