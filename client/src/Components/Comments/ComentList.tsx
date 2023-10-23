@@ -7,26 +7,28 @@ import CommentItem from "./CommentItem";
 
 const CommentList = () => {
   const [comments, setComments] = useState("") as any;
-  //Створюємо стейт для меню
-
+  //Створюємо стейт для коментарів
   const getComment = async () => {
     await axios
-      .get("http://localhost:8080/api/get/comments")
+      .get("https://inst-test-9c942bc3025d.herokuapp.com/api/get/comments")
       .then((res) => {
         setComments(res.data);
       })
       .catch((err) => console.log(err));
   };
 
-  if (comments == "") {
-    getComment();
-  }
+  useEffect(() => {
+    if (comments == "") {
+      getComment();
+    }
+  });
+
   //Отримуємо коментарі з сервера
 
   return (
     <div id="commentList">
       {comments != "" &&
-        comments.map((e: any) => <CommentItem key={e.id} data={e} />)}
+        comments.map((e: any) => <CommentItem key={e._id} data={e} />)}
     </div>
   );
 };

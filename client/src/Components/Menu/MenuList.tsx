@@ -17,9 +17,12 @@ const MenuList = () => {
       })
       .catch((err) => console.log(err));
   };
-  if (menu == "") {
-    getMenu();
-  }
+  useEffect(() => {
+    if (menu == "") {
+      getMenu();
+    }
+  });
+
   //Отримуємо меню з сервера
 
   return (
@@ -37,7 +40,8 @@ const MenuList = () => {
             return 0;
           })
           .map(
-            (e: any) => e.category == "Піца" && <MenuItem key={e.id} data={e} />
+            (e: any) =>
+              e.category == "Піца" && <MenuItem key={e._id} data={e} />
           )}
       <h1>Напої</h1>
       {menu != "" &&
@@ -53,7 +57,7 @@ const MenuList = () => {
           })
           .map(
             (e: any) =>
-              e.category == "Напій" && <MenuItem key={e.id} data={e} />
+              e.category == "Напій" && <MenuItem key={e._id} data={e} />
           )}
       <h1>Десерти</h1>
       {menu != "" &&
@@ -69,7 +73,7 @@ const MenuList = () => {
           })
           .map(
             (e: any) =>
-              e.category == "Десерт" && <MenuItem key={e.id} data={e} />
+              e.category == "Десерт" && <MenuItem key={e._id} data={e} />
           )}
     </div>
   );

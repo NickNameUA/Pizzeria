@@ -16,7 +16,7 @@ const CreateComment = () => {
   const [onHover, setOnHover] = useState(false);
 
   const validate = () => {
-    if (name != "" && name.length > 3) {
+    if (name != "" && name.length > 3 && selected != 0) {
       return true;
     }
   };
@@ -24,12 +24,18 @@ const CreateComment = () => {
   const submit = async () => {
     if (validate()) {
       await axios
-        .post("http://localhost:8080/api/post/menu/item", {
-          name: name,
-          text: text,
-          starCount: starCount,
-        })
+        .post(
+          "https://inst-test-9c942bc3025d.herokuapp.com/api/post/create/comment",
+          {
+            name: name,
+            text: text,
+            starCount: selected,
+          }
+        )
         .catch((err) => console.log(err));
+      setName("");
+      setText("");
+      setSelected(0);
     }
   };
 

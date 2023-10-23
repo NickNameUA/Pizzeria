@@ -11,7 +11,7 @@ interface Props {
 
 const CommentItem = (props: Props) => {
   const getStars = () => {
-    switch (props.data.starCount) {
+    switch (props.data.StarCount) {
       case 1:
         return (
           <>
@@ -71,8 +71,8 @@ const CommentItem = (props: Props) => {
   };
   return (
     <div className="commentItem">
-      <p className="name">{props.data.name}</p>
-      <p>{props.data.text}</p>
+      <p className="name">{props.data.Name}</p>
+      <p>{props.data.Text}</p>
       <div className="starCon">{getStars()}</div>
     </div>
   );
