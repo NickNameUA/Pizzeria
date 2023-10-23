@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import getPhoto from "../photos";
 import { Button } from "@mui/material";
 import axios from "axios";
@@ -16,7 +16,7 @@ const CortItem = (props: Props) => {
   //Створення необхідний стейтів
   const getItem = async () => {
     await axios
-      .post("https://inst-test-9c942bc3025d.herokuapp.com/api/post/menu/item", {
+      .post("http://localhost:8080/api/post/menu/item", {
         data: props.name,
       })
       .then((res) => {
@@ -24,9 +24,12 @@ const CortItem = (props: Props) => {
       })
       .catch((err) => console.log(err));
   };
-  if (data == "") {
-    getItem();
-  }
+
+  useEffect(() => {
+    if (data == "") {
+      getItem();
+    }
+  });
   //Отримання інформації про позицію меню з сервера
 
   const cortDelete = () => {
