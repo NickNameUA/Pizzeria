@@ -21,15 +21,6 @@ app.get("/api/get/menu", async function (req, res) {
   } catch (error) {}
 });
 
-app.post("/api/post/menu/item", async function (req, res) {
-  try {
-    await mongoose.connect(process.env.DB_URL);
-    const item = await Pizza.findOne({ name: req.body.data });
-    res.send(item).status(200);
-    await mongoose.disconnect();
-  } catch (error) {}
-});
-
 app.get("/api/get/comments", async function (req, res) {
   try {
     await mongoose.connect(process.env.DB_URL);
