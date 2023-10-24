@@ -1,0 +1,15 @@
+#emptyCort {
+  width: 100%;
+}
+
+#emptyCort p {
+  text-align: center;
+  font-family: 'Caveat', cursive;
+  font-size: 30px;
+}
+
+@media screen and (max-width:767px) {
+  #emptyCort p {
+    font-size: 20px;
+  }
+}

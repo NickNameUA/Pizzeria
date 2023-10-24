@@ -1,0 +1,43 @@
+footer {
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+footer div {
+  margin: 0 auto;
+  z-index: 2;
+}
+
+footer .text {
+  text-decoration: none;
+  color: white;
+  font-style: italic;
+}
+
+footer .category {
+  text-decoration: none;
+  color: white;
+  text-align: center;
+  font-style: italic;
+}
+
+@media screen and (min-width:1024px) {
+  footer .category {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width:767px) {
+  footer .category {
+    font-size: 15px;
+  }
+
+  footer .text {
+    text-decoration: none;
+    color: white;
+    font-style: italic;
+    font-size: 10px;
+  }
+}

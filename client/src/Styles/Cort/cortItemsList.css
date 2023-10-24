@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
+
+#cortItemsList {
+  display: flex;
+  flex-wrap: wrap;
+  width: 70%;
+  height: 100%;
+}
+
+
+.cortItem {
+  height: initial;
+  width: inherit;
+  max-width: 400px;
+  border: 1px solid black;
+  padding: 10px;
+  background-color: beige;
+  display: flex;
+  font-family: 'Caveat', cursive;
+  margin: 10px auto;
+  min-width: 200px;
+}
+
+.cortItem img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin: auto;
+}
+
+.cortItem div {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.cortItem .desc {
+  text-align: left;
+  margin-left: auto;
+}
+
+.cortItem .desc * {
+  margin: 0;
+}
+
+.cortItem p {
+  font-size: 30px;
+  margin: 0;
+  display: flex;
+}
+
+.cortItem .countBtns {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+}
+
+.cortItem .countBtns p {
+  width: fit-content;
+  margin: auto;
+}
+
+.cortItem .countBtns button {
+  width: 35px;
+  height: 35px;
+  font-size: 30px;
+  border-radius: 50%;
+  border: 0;
+}
+
+.cortItem span {
+  font-size: 30px;
+  margin: auto;
+  display: flex;
+}
+
+.cortItem li {
+  font-size: 21px;
+}
+
+.cortItem .delete {
+  margin: auto;
+  font-size: 12px;
+  margin-bottom: 0;
+  border-radius: 20px;
+  border: 2px red solid;
+  background-color: pink;
+  color: red;
+  width: 180px;
+  transition: all 0.3s;
+}
+
+.cortItem .delete:hover {
+  padding: 3px;
+  border-radius: 10px;
+}
+
+.deletedItem {
+  display: none;
+}
+
+@media screen and (max-width:767px) {
+  #cortItemsList {
+    width: 100%
+  }
+
+  .cortItem {
+    display: block;
+  }
+
+  .cortItem p,
+  .cortItem span,
+  .cortItem .countBtns button {
+    font-size: 20px;
+  }
+
+  .cortItem .delete {
+    font-size: 10px;
+    width: 160px;
+  }
+
+  .cortItem li {
+    font-size: 18px;
+  }
+}

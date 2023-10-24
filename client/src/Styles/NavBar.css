@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Bad+Script&display=swap');
+
+#NavBar>a {
+  display: flex;
+}
+
+#NavBar {
+  display: flex;
+  background-color: yellowgreen;
+  position: absolute;
+}
+
+#NavBar button {
+  margin: auto;
+  padding: 8px;
+  border: none;
+  background: none;
+  display: flex;
+  transition: all 0.3s ease-in;
+  border-radius: 20px;
+  font-family: 'Bad Script', cursive;
+}
+
+#NavBar button:hover {
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+}
+
+#NavBar button a {
+  display: flex;
+  margin: auto;
+  text-decoration: none;
+  color: black;
+}
+
+#NavBar button #pizza {
+  transform: rotate(270deg);
+}
+
+#NavBar .icon {
+  color: white;
+}
+
+@media screen and (min-width:1024px) {
+  #NavBar {
+    width: 100%;
+    height: 74px;
+  }
+
+  #NavBar button {
+    width: 150px;
+    font-size: 30px;
+  }
+
+  #NavBar button:hover {
+    width: 300px;
+  }
+
+  #NavBar .icon {
+    font-size: 50px;
+  }
+}
+
+
+@media screen and (min-width:767px) and (max-width:1024px) {
+  #NavBar {
+    width: 100%;
+    height: 64px;
+  }
+
+  #NavBar button {
+    width: fit-content;
+    font-size: 25px;
+  }
+
+  #NavBar button:hover {
+    width: 210px;
+  }
+
+  #NavBar .icon {
+    font-size: 40px;
+  }
+}
+
+@media screen and (max-width:767px) {
+  #NavBar {
+    width: 100%;
+    height: 54px;
+  }
+
+  #NavBar button {
+    width: 100px;
+    font-size: 3vw;
+  }
+
+  #NavBar button:hover {
+    width: 110px;
+  }
+
+  #NavBar .icon {
+    font-size: 5vw;
+  }
+}

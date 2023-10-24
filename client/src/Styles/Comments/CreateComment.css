@@ -1,0 +1,80 @@
+#createComment {
+  padding: 10px;
+  width: 80%;
+  margin: auto;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: aquamarine;
+  box-sizing: border-box;
+  border: 2px solid black;
+  border-radius: 50px;
+}
+
+#createComment * {
+  font-family: 'Caveat', cursive;
+}
+
+#createComment h1,
+#createComment p {
+  text-align: center;
+}
+
+#createComment p {
+  font-size: 25px;
+  margin: 0;
+}
+
+#createComment div {
+  display: flex;
+  margin: 10px auto;
+  width: 100%;
+}
+
+#createComment div:nth-child(3) {
+  display: block;
+}
+
+#createComment input,
+#createComment textarea {
+  width: 100%;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  font-size: 20px;
+  margin: auto;
+  text-align: center;
+}
+
+#createComment textarea {
+  resize: none;
+  width: 100%;
+  height: 200px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+#createComment button {
+  width: fit-content;
+  margin: auto;
+  color: black;
+  background-color: lightgray;
+  border: 1px black solid;
+  border-radius: 20px;
+  display: flex;
+  width: 200px;
+}
+
+#createComment button p {
+  display: flex;
+  font-size: 22px;
+}
+
+#createComment button p * {
+  margin: auto 5px;
+  font-size: 20px;
+}
+
+#createComment .star {
+  cursor: pointer;
+}

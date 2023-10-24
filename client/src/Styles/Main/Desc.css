@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
+
+#desc {
+  border-top: 5px solid black;
+  display: flex;
+}
+
+#desc div {
+  display: flex;
+}
+
+#desc #descPhoto {
+  margin: auto;
+  margin-left: 0;
+}
+
+#desc #descText {
+  flex-direction: column;
+  margin: auto;
+  margin-left: 0;
+  font-family: 'Caveat', cursive;
+  padding: 3px 0;
+}
+
+
+#desc div #photo {
+  margin: 0 auto;
+}
+
+#desc div div {
+  display: flex;
+  width: 100%;
+}
+
+
+#desc div div * {
+  margin: auto;
+}
+
+#desc #menuBtn {
+  width: fit-content;
+  border-radius: 10px;
+  margin: 0 auto;
+  border: black 2px dotted;
+}
+
+#desc #menuBtn a {
+  color: black;
+  text-decoration: none;
+}
+
+@media screen and (min-width:1024px) {
+  #desc div {
+    width: 40%;
+  }
+
+  #desc #descPhoto {
+    width: fit-content;
+  }
+
+  #desc div p {
+    font-size: 25px;
+  }
+
+  #desc div #photo {
+    height: 800px;
+  }
+
+  #desc #logo {
+    width: 30%;
+  }
+
+  #desc div div * {
+    font-size: 30px;
+  }
+
+  #desc #menuBtn {
+    font-size: 25px;
+  }
+}
+
+@media screen and (min-width:767px) and (max-width:1024px) {
+  #desc div {
+    width: 47%;
+  }
+
+  #desc #descPhoto {
+    width: 47%;
+  }
+
+  #desc div p {
+    font-size: 20px;
+  }
+
+  #desc div #photo {
+    width: 100%;
+  }
+
+  #desc #logo {
+    width: 20%;
+  }
+
+  #desc div div * {
+    font-size: 25px;
+  }
+
+  #desc #menuBtn {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width:767px) {
+  #desc div {
+    width: 47%;
+  }
+
+  #desc #descPhoto {
+    width: 47%;
+    display: none;
+  }
+
+  #desc #descText {
+    width: 80%;
+    margin: auto;
+  }
+
+  #desc div p {
+    font-size: 15px;
+  }
+
+  #desc div #photo {
+    width: 100%;
+  }
+
+  #desc #logo {
+    width: 20%;
+  }
+
+  #desc div div * {
+    font-size: 20px;
+  }
+
+  #desc #menuBtn {
+    font-size: 20px;
+  }
+}
