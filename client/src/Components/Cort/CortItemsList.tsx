@@ -3,11 +3,32 @@ import React, { useEffect, useState } from "react";
 import "../..//Styles/Cort/cortItemsList.css";
 import CortItem from "./CortItem";
 import EmptyCort from "./EmptyCort";
+import axios from "axios";
 
 const CortItemsList = () => {
   const [list, setList] = useState<string[]>([]);
   const [load, setLoad] = useState(false);
   const [len, setLen] = useState(document.querySelectorAll(".cortItem").length);
+  const [menu, setMenu] = useState() as any;
+  //Створюємо стейт для меню
+
+  const getMenu = async () => {
+    await axios
+      .get("https://inst-test-9c942bc3025d.herokuapp.com/api/get/menu")
+      .then((res) => {
+        setMenu(res.data);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  useEffect(() => {
+    if (menu == undefined) {
+      getMenu();
+    }
+  });
+
+  //Отримуємо меню з сервера
+
   //Створення необхідний стейтів
 
   const arr = [] as any;
@@ -24,7 +45,6 @@ const CortItemsList = () => {
     setLoad(true);
   }
   //Наповнення списку за допомогою сесії
-
   setInterval(() => {
     if (len != document.querySelectorAll(".cortItem").length) {
       setLen(document.querySelectorAll(".cortItem").length);
@@ -34,10 +54,13 @@ const CortItemsList = () => {
 
   return (
     <div id="cortItemsList">
-      {list.map((e: any) => {
-        return <CortItem name={e} key={e} />;
-      })}
-      {len == 0 && <EmptyCort />}
+      {menu != undefined &&
+        menu.map((e: any) => {
+          if (list.includes(e.name)) {
+            return <CortItem data={e} key={e._id} />;
+          }
+        })}
+      ;{len == 0 && <EmptyCort />}
     </div>
   );
 };
