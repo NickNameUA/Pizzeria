@@ -41,75 +41,33 @@ const CreateComment = () => {
   };
 
   setTimeout(() => {
-    const star1 = document.getElementById("star1") as Element;
+    const handleStarHover = (starNumber: number) => {
+      return () => {
+        setStarCount(starNumber);
+        setOnHover(true);
+      };
+    };
 
-    star1.addEventListener("mouseover", () => {
-      setStarCount(1);
-      setOnHover(true);
-    });
+    const handleStarMouseOut = (starNumber: number) => {
+      return () => {
+        if (selected !== starNumber) {
+          setStarCount(0);
+        }
+        setOnHover(false);
+      };
+    };
 
-    star1.addEventListener("mouseout", () => {
-      if (selected != 1) {
-        setStarCount(0);
-      }
-      setOnHover(false);
-    });
+    const addStarEventListeners = (starNumber: number) => {
+      const star = document.getElementById(`star${starNumber}`) as any;
 
-    const star2 = document.getElementById("star2") as Element;
+      star.addEventListener("mouseover", handleStarHover(starNumber));
+      star.addEventListener("mouseout", handleStarMouseOut(starNumber));
+    };
 
-    star2.addEventListener("mouseover", () => {
-      setStarCount(2);
-      setOnHover(true);
-    });
-
-    star2.addEventListener("mouseout", () => {
-      if (selected != 2) {
-        setStarCount(0);
-      }
-      setOnHover(false);
-    });
-
-    const star3 = document.getElementById("star3") as Element;
-
-    star3.addEventListener("mouseover", () => {
-      setStarCount(3);
-      setOnHover(true);
-    });
-
-    star3.addEventListener("mouseout", () => {
-      if (selected != 3) {
-        setStarCount(0);
-      }
-      setOnHover(false);
-    });
-
-    const star4 = document.getElementById("star4") as Element;
-
-    star4.addEventListener("mouseover", () => {
-      setStarCount(4);
-      setOnHover(true);
-    });
-
-    star4.addEventListener("mouseout", () => {
-      if (selected != 4) {
-        setStarCount(0);
-      }
-      setOnHover(false);
-    });
-
-    const star5 = document.getElementById("star5") as Element;
-
-    star5.addEventListener("mouseover", () => {
-      setStarCount(5);
-      setOnHover(true);
-    });
-
-    star5.addEventListener("mouseout", () => {
-      if (selected != 5) {
-        setStarCount(0);
-      }
-      setOnHover(false);
-    });
+    // Add event listeners for all stars
+    for (let i = 1; i <= 5; i++) {
+      addStarEventListeners(i);
+    }
   }, 1);
 
   const getStar = (count: number) => {
