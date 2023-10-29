@@ -8,8 +8,10 @@ const Menu = () => {
   return (
     <>
       <NavBar />
-      <CreateComment />
-      <ComentList />
+      <main>
+        <CreateComment />
+        <ComentList />
+      </main>
       <Footer />
     </>
   );

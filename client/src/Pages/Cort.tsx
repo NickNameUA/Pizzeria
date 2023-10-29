@@ -7,8 +7,10 @@ const Cort = () => {
   return (
     <>
       <NavBar />
-      <CortItemsList />
-      <CortInputs />
+      <main>
+        <CortItemsList />
+        <CortInputs />
+      </main>
     </>
   );
 };

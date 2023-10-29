@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import getPhoto from "../photos";
+import getPhoto from "../../photos";
 import { Button } from "@mui/material";
 import axios from "axios";
 
@@ -56,7 +56,7 @@ const CortItem = (props: Props) => {
         {props.data != undefined && props.data.structure != undefined && (
           <>
             <p>Склад</p>
-            <ul id="ul">
+            <ul>
               {props.data.structure != undefined &&
                 props.data.structure.map((e: string) => <li key={e}>{e}</li>)}
             </ul>

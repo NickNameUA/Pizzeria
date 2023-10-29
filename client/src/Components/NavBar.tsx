@@ -11,7 +11,7 @@ import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
   return (
-    <div id="NavBar">
+    <nav id="NavBar">
       <button>
         <NavLink to="/">
           <HomeIcon className="icon" sx={{ fontSize: 40 }} />
@@ -42,7 +42,7 @@ const NavBar = () => {
           Кошик
         </NavLink>
       </button>
-    </div>
+    </nav>
   );
 };
 export default NavBar;

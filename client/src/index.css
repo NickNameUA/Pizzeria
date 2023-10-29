@@ -3,19 +3,19 @@ body {
 }
 
 @media screen and (min-width:1024px) {
-  #root>div:not(#NavBar):nth-child(2) {
+  #root main {
     padding-top: 66px;
   }
 }
 
 @media screen and (min-width:767px) and (max-width:1024px) {
-  #root>div:not(#NavBar):nth-child(2) {
+  #root main {
     padding-top: 59px;
   }
 }
 
 @media screen and (max-width:767px) {
-  #root>div:not(#NavBar):nth-child(2) {
+  #root main {
     padding-top: 50px;
   }
 }

@@ -23,59 +23,38 @@ const MenuList = () => {
     }
   });
 
+  const pizza = [] as any;
+  const desert = [] as any;
+  const drinks = [] as any;
+
   //Отримуємо меню з сервера
+  menu != "" &&
+    menu
+      .sort((a: any, b: any) => {
+        if (a.name < b.name) {
+          return -1;
+        }
+        if (a.name > b.name) {
+          return 1;
+        }
+        return 0;
+      })
+      .map((e: any) => {
+        e.category == "Піца" && pizza.push(<MenuItem key={e._id} data={e} />);
+        e.category == "Напій" && drinks.push(<MenuItem key={e._id} data={e} />);
+        e.category == "Десерт" &&
+          desert.push(<MenuItem key={e._id} data={e} />);
+      });
 
   return (
-    <div id="menuList">
-      <h1>Піци</h1>
-      {menu != "" &&
-        menu
-          .sort((a: any, b: any) => {
-            if (a.name < b.name) {
-              return -1;
-            }
-            if (a.name > b.name) {
-              return 1;
-            }
-            return 0;
-          })
-          .map(
-            (e: any) =>
-              e.category == "Піца" && <MenuItem key={e._id} data={e} />
-          )}
-      <h1>Напої</h1>
-      {menu != "" &&
-        menu
-          .sort((a: any, b: any) => {
-            if (a.name < b.name) {
-              return -1;
-            }
-            if (a.name > b.name) {
-              return 1;
-            }
-            return 0;
-          })
-          .map(
-            (e: any) =>
-              e.category == "Напій" && <MenuItem key={e._id} data={e} />
-          )}
-      <h1>Десерти</h1>
-      {menu != "" &&
-        menu
-          .sort((a: any, b: any) => {
-            if (a.name < b.name) {
-              return -1;
-            }
-            if (a.name > b.name) {
-              return 1;
-            }
-            return 0;
-          })
-          .map(
-            (e: any) =>
-              e.category == "Десерт" && <MenuItem key={e._id} data={e} />
-          )}
-    </div>
+    <main id="menuList">
+      <h2>Піци</h2>
+      {pizza}
+      <h2>Напої</h2>
+      {drinks}
+      <h2>Десерти</h2>
+      {desert}
+    </main>
   );
 };
 

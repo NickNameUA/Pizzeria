@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import getPhoto from "../photos";
+import getPhoto from "../../photos";
 import { Button } from "@mui/material";
 
 interface Props {
@@ -43,7 +43,7 @@ const MenuItem = (props: Props) => {
           </>
         )}
       </div>
-      <div id="btnContainer">
+      <div className="btnContainer">
         <Button
           className={added == "false" ? "btn add" : "btn delete"}
           onClick={() => {

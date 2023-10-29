@@ -28,7 +28,9 @@ app.post("/api/post/menu/item", async function (req, res) {
     res.send(item).status(200);
     await mongoose.disconnect();
   } catch (error) {}
-});app.get("/api/get/comments", async function (req, res) {
+});
+
+app.get("/api/get/comments", async function (req, res) {
   try {
     await mongoose.connect(process.env.DB_URL);
     const comments = await Comment.find();
