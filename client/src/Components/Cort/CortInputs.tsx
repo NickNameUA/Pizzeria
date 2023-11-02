@@ -1,17 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "../../Styles/Cort/PaymentForm.css";
 import { IMaskInput } from "react-imask";
-import {
-  Select,
-  MenuItem,
-  Button,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
-} from "@mui/material";
+import { Select, MenuItem } from "@mui/material";
 import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
+import Alarm from "./Alarm";
 
 const CardInputs = () => {
   const [address, setAddress] = useState("") as any;
@@ -148,36 +140,14 @@ const CardInputs = () => {
         </Select>
       </div>
       <p>Сумма замовлення: {cost.toFixed(1)}$</p>
-      <Button
-        id="buyBtn"
-        onClick={() => {
-          if (isValid) {
-            handleClickOpen();
-          }
-        }}
-      >
-        Замовити
-      </Button>
-      <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>{"Ваше замовленя прийняте на опрацювання"}</DialogTitle>
-        <DialogContent>
-          <DialogContentText>
-            <ul>
-              Ваше замовлення на опрацюванні, за декілька хвилин вам зателефонує
-              наш оператор на номер: {phoneNumb}
-              <br />
-              Адреса: {address} {house}
-              <br />
-              Спосіб оплати замовлення: {payMeth}
-              <br />
-              Ціна: {cost}$
-            </ul>
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose}>Окей</Button>
-        </DialogActions>
-      </Dialog>
+      <Alarm
+        isValid={isValid}
+        address={address}
+        house={house}
+        phoneNumb={phoneNumb}
+        payMeth={payMeth}
+        cost={0}
+      />
     </form>
   );
 };
