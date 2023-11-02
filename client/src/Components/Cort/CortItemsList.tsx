@@ -10,7 +10,8 @@ const CortItemsList = () => {
   const [load, setLoad] = useState(false);
   const [len, setLen] = useState(document.querySelectorAll(".cortItem").length);
   const [menu, setMenu] = useState() as any;
-  //Створюємо стейт для меню
+
+  //Створюємо необхідні стейти
 
   const getMenu = async () => {
     await axios
@@ -29,8 +30,6 @@ const CortItemsList = () => {
 
   //Отримуємо меню з сервера
 
-  //Створення необхідний стейтів
-
   const arr = [] as any;
 
   if (!load) {
@@ -44,14 +43,16 @@ const CortItemsList = () => {
     }
     setLoad(true);
   }
+
   //Наповнення списку за допомогою сесії
+
   setInterval(() => {
     if (len != document.querySelectorAll(".cortItem").length) {
       setLen(document.querySelectorAll(".cortItem").length);
     }
   }, 1);
-  //Перевірка наявності позицій меню у замовленні
 
+  //Перевірка наявності позицій меню у замовленні
   return (
     <div id="cortItemsList">
       {menu != undefined &&

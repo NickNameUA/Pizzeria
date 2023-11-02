@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
-import "../../Styles/Cort/PaymentForm.css";
 import { IMaskInput } from "react-imask";
 import { Select, MenuItem } from "@mui/material";
 import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
+
 import Alarm from "./Alarm";
+
+import "../../Styles/Cort/PaymentForm.css";
 
 const CardInputs = () => {
   const [address, setAddress] = useState("") as any;
@@ -17,7 +19,9 @@ const CardInputs = () => {
   const [isValid, setIsValid] = useState(false);
   const [hide, setHide] = useState(false);
   const [collection, setCollection] = useState("") as any;
+
   //Створюємо необхідні стейти
+
   useEffect(() => {
     if (phoneNumb.length > 3 && phoneNumb.slice(3, 4) != "0") {
       setPhoneNumb(phoneNumb.slice(0, 3) + "0" + phoneNumb.slice(4, -1));
@@ -28,7 +32,9 @@ const CardInputs = () => {
       setIsValid(true);
     }
   };
+
   //Валідація інпутів
+
   window.onscroll = () => {
     const navBar = document.querySelector("#NavBar") as any;
     const height = getComputedStyle(navBar, null).height.replace(
@@ -40,7 +46,9 @@ const CardInputs = () => {
       `calc(100% - ${window.scrollY <= height ? height - window.scrollY : 0}px)`
     );
   };
-  //Моніторинг висоти навбара та зміна висоти блока інпутів}
+
+  //Моніторинг висоти навбара та зміна висоти блока інпутів
+
   setInterval(() => {
     const coll = document.getElementsByClassName("cortItem");
     if (coll != collection) {
@@ -52,8 +60,9 @@ const CardInputs = () => {
       setCollection(coll);
       setCost(cos);
     }
-    //Моніторинг та підрахування ціни заказу
   }, 1);
+
+  //Моніторинг та підрахування ціни заказу
   return (
     <form id="paymentForm" className={hide ? "hide" : "visible"}>
       <div

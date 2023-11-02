@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "@mui/material";
+import axios from "axios";
 
 import StarIcon from "@mui/icons-material/Star";
 import StarOutlineIcon from "@mui/icons-material/StarOutline";
 import SendIcon from "@mui/icons-material/Send";
 
 import "../../Styles/Comments/CreateComment.css";
-import axios from "axios";
 
 const CreateComment = () => {
   const [name, setName] = useState("");
@@ -16,6 +16,8 @@ const CreateComment = () => {
   const [starErr, setStarErr] = useState("");
   const [selected, setSelected] = useState(0);
   const [onHover, setOnHover] = useState(false);
+
+  //Створюємо стейти
 
   const validate = () => {
     if (selected == 0) {
@@ -28,6 +30,12 @@ const CreateComment = () => {
       return true;
     }
   };
+
+  useEffect(() => {
+    selected != 0 && setStarErr("");
+  }, [selected]);
+
+  //Валідація інпутів
 
   const submit = async () => {
     if (validate()) {
@@ -47,6 +55,8 @@ const CreateComment = () => {
       window.location.reload();
     }
   };
+
+  //Відправка данних з коментарію на сервер
 
   setTimeout(() => {
     const handleStarHover = (starNumber: number) => {
@@ -72,15 +82,12 @@ const CreateComment = () => {
       star.addEventListener("mouseout", handleStarMouseOut(starNumber));
     };
 
-    // Add event listeners for all stars
     for (let i = 1; i <= 5; i++) {
       addStarEventListeners(i);
     }
   }, 1);
 
-  useEffect(() => {
-    selected != 0 && setStarErr("");
-  }, [selected]);
+  //Додаємо прослуховувачів подій для всіх зірок
 
   const getStar = (count: number) => {
     if (
@@ -112,6 +119,7 @@ const CreateComment = () => {
     }
   };
 
+  //Функція для перевірки чи повинна бути зірка активною
   return (
     <div>
       <div id="createComment">

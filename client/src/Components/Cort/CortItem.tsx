@@ -9,22 +9,23 @@ interface Props {
 }
 
 const CortItem = (props: Props) => {
-  const [photo, setPhoto] = useState(getPhoto(props.data.name));
-  const [count, setCount] = useState(1);
+  const [count, setCount] = useState(0);
   const [isDel, setIsDel] = useState(false);
-  //Створення необхідний стейтів
+
+  //Створюємо необхідні стейти
 
   const cortDelete = () => {
     localStorage.removeItem(props.data.name);
     setIsDel(true);
   };
-  //Видалення позиції менб з замовлення
+
+  //Функція видалення позиції меню з замовлення
 
   return (
     <div className={isDel ? "deletedItem" : "cortItem"}>
       <div className="preVeiw">
         <p>{props.data.name}</p>
-        <img src={photo} />
+        <img src={getPhoto(props.data.name)} />
         <p>Кількість</p>
         <div className="countBtns">
           <button

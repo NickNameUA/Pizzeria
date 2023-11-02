@@ -8,11 +8,11 @@ interface Props {
 }
 
 const MenuItem = (props: Props) => {
-  const [photo, setPhoto] = useState(getPhoto(props.data.name));
   const [added, setAdded] = useState(
     localStorage.getItem(props.data.name) || "false"
   );
-  //Створюємо необхідні стейти
+
+  //Створюємо стейт для перевірки елементу на наявність
 
   const cortChange = () => {
     if (added == "false") {
@@ -23,12 +23,13 @@ const MenuItem = (props: Props) => {
       setAdded("false");
     }
   };
+
   //Функція для додавання та вилучання позиції меню з замовлення
 
   return (
     <div className="menuItem">
       <p>{props.data.name}</p>
-      <img src={photo} />
+      <img src={getPhoto(props.data.name)} />
       <div>
         <p>Ціна: {props.data.cost}$</p>
         <p>Вага: {props.data.weight}г</p>

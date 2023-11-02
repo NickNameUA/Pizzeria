@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { Button } from "@mui/material";
-
+import React from "react";
 import StarIcon from "@mui/icons-material/Star";
 import StarOutlineIcon from "@mui/icons-material/StarOutline";
 
@@ -22,7 +20,6 @@ const CommentItem = (props: Props) => {
             <StarOutlineIcon />
           </>
         );
-        break;
       case 2:
         return (
           <>
@@ -33,7 +30,6 @@ const CommentItem = (props: Props) => {
             <StarOutlineIcon />
           </>
         );
-        break;
       case 3:
         return (
           <>
@@ -44,7 +40,6 @@ const CommentItem = (props: Props) => {
             <StarOutlineIcon />
           </>
         );
-        break;
       case 4:
         return (
           <>
@@ -55,7 +50,6 @@ const CommentItem = (props: Props) => {
             <StarOutlineIcon />
           </>
         );
-        break;
       case 5:
         return (
           <>
@@ -66,8 +60,9 @@ const CommentItem = (props: Props) => {
             <StarIcon />
           </>
         );
-        break;
     }
+
+    //Отримуємо елемент із зірками
   };
   return (
     <div className="commentItem">

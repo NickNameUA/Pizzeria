@@ -19,7 +19,8 @@ interface Props {
 
 const Alarm = (props: Props) => {
   const [open, setOpen] = useState(false);
-  //Створюємо необхідні стейти
+
+  //Створюємо стейт для перевірки чи потрібно відкрити повідомлення
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -28,8 +29,8 @@ const Alarm = (props: Props) => {
   const handleClose = () => {
     setOpen(false);
   };
-  //Функції для роботи з алертом
 
+  //Функції для роботи з відном повідомлення
   return (
     <>
       <Button

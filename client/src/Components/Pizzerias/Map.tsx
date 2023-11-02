@@ -7,6 +7,8 @@ const Map = () => {
   const [map, setMap] = useState("Заводська 13г");
   const [mapSrc, setMapSrc] = useState("");
 
+  //Створення необхідних стейтів
+
   useEffect(() => {
     switch (map) {
       case "Заводська 13г":
@@ -27,6 +29,7 @@ const Map = () => {
     }
   }, [map]);
 
+  //Зміна посилання на карту
   return (
     <div id="map">
       <h1>Вул.{map}</h1>
