@@ -10,13 +10,21 @@ import axios from "axios";
 
 const CreateComment = () => {
   const [name, setName] = useState("");
+  const [nameErr, setNameErr] = useState("");
   const [text, setText] = useState("");
   const [starCount, setStarCount] = useState(0);
+  const [starErr, setStarErr] = useState("");
   const [selected, setSelected] = useState(0);
   const [onHover, setOnHover] = useState(false);
 
   const validate = () => {
-    if (name != "" && name.length > 3 && selected != 0) {
+    if (selected == 0) {
+      setStarErr("Oберіть оцінку");
+    }
+    if (name == "") {
+      setNameErr("Введіть ім'я");
+    }
+    if (name != "" && name.length >= 3 && selected != 0) {
       return true;
     }
   };
@@ -70,6 +78,10 @@ const CreateComment = () => {
     }
   }, 1);
 
+  useEffect(() => {
+    selected != 0 && setStarErr("");
+  }, [selected]);
+
   const getStar = (count: number) => {
     if (
       (selected == 0 && starCount > count - 1) ||
@@ -104,17 +116,21 @@ const CreateComment = () => {
     <div>
       <div id="createComment">
         <h1>Створити коментар</h1>
+        {nameErr != "" && <label>{nameErr}</label>}
         <div>
           <p>Ім'я:</p>
           <input
             value={name}
             type="text"
             onChange={(e) => {
+              e.target.value.length < 3
+                ? setNameErr("Надто коротке ім'я")
+                : setNameErr("");
               setName(e.target.value);
             }}
           />
         </div>
-        <div>
+        <div id="txtCont">
           <p>Текст коментару:</p>
           <textarea
             value={text}
@@ -123,6 +139,7 @@ const CreateComment = () => {
             }}
           />
         </div>
+        {starErr != "" && <label>{starErr}</label>}
         <div className="starCon">
           {getStar(1)}
           {getStar(2)}

@@ -15,8 +15,11 @@ import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrow
 
 const CardInputs = () => {
   const [address, setAddress] = useState("") as any;
+  const [addressErr, setAddressErr] = useState(false);
   const [house, setHouse] = useState("") as any;
+  const [houseErr, setHouseErr] = useState(false);
   const [phoneNumb, setPhoneNumb] = useState("") as any;
+  const [numberErr, setNumberErr] = useState(false);
   const [payMeth, setPayMeth] = useState("Готівкою") as any;
   const [cost, setCost] = useState(0);
   const [open, setOpen] = useState(false);
@@ -24,6 +27,11 @@ const CardInputs = () => {
   const [hide, setHide] = useState(false);
   const [collection, setCollection] = useState("") as any;
   //Створюємо необхідні стейти
+  useEffect(() => {
+    if (phoneNumb.length > 3 && phoneNumb.slice(3, 4) != "0") {
+      setPhoneNumb(phoneNumb.slice(0, 3) + "0" + phoneNumb.slice(4, -1));
+    }
+  }, [phoneNumb]);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -35,16 +43,8 @@ const CardInputs = () => {
   //Функції для роботи з алертом
 
   const valid = () => {
-    if (address != "" && house != "" && phoneNumb != "" && cost != 0) {
-      if (
-        address.length > 8 &&
-        house.length > 0 &&
-        phoneNumb.replace(/[^\d]/g, "").length == 12
-      ) {
-        setIsValid(true);
-      } else {
-        setIsValid(false);
-      }
+    if (!numberErr && !addressErr && !houseErr) {
+      setIsValid(true);
     }
   };
   //Валідація інпутів
@@ -88,22 +88,28 @@ const CardInputs = () => {
         Адресa:
         <div>
           <IMaskInput
+            className={addressErr ? "error" : ""}
             autoComplete="off"
             id="street"
             mask="Вул.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
             placeholder="Bулиця"
-            onChange={(e: any) => {
-              valid();
+            onInput={(e: any) => {
+              e.target.value.length <= 8
+                ? setAddressErr(true)
+                : setAddressErr(false);
               setAddress(e.target.value);
             }}
           />
           <IMaskInput
+            className={houseErr ? "error" : ""}
             autoComplete="off"
             id="house"
             mask="Буд.0***"
             placeholder="Будинок"
-            onChange={(e: any) => {
-              valid();
+            onInput={(e: any) => {
+              e.target.value.length <= 4
+                ? setHouseErr(true)
+                : setHouseErr(false);
               setHouse(e.target.value);
             }}
           />
@@ -112,11 +118,16 @@ const CardInputs = () => {
       <div>
         Номер телефону:
         <IMaskInput
+          className={numberErr ? "error" : ""}
+          id="numb"
+          value={phoneNumb}
           autoComplete="off"
-          mask="+{380} (00) 000-00-00"
+          mask={"+380 (00) 000-00-00"}
           placeholder="+38"
-          onChange={(e: any) => {
-            valid();
+          onInput={(e: any) => {
+            e.target.value.length != 19
+              ? setNumberErr(true)
+              : setNumberErr(false);
             setPhoneNumb(e.target.value);
           }}
         />

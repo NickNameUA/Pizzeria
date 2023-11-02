@@ -31,8 +31,18 @@
   width: 100%;
 }
 
-#createComment div:nth-child(3) {
+#createComment #txtCont {
   display: block;
+}
+
+#createComment label {
+  background-color: white;
+  font-size: 25px;
+  margin: auto;
+  padding: 0 10px;
+  border-radius: 20px;
+  opacity: 80%;
+  color: red;
 }
 
 #createComment input,
