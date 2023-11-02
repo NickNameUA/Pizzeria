@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { IMaskInput } from "react-imask";
-import { Select, MenuItem } from "@mui/material";
 import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
 
+import Select from "./SelectComp";
 import Alarm from "./Alarm";
 
 import "../../Styles/Cort/PaymentForm.css";
@@ -27,6 +27,7 @@ const CardInputs = () => {
       setPhoneNumb(phoneNumb.slice(0, 3) + "0" + phoneNumb.slice(4, -1));
     }
   }, [phoneNumb]);
+
   const valid = () => {
     if (!numberErr && !addressErr && !houseErr) {
       setIsValid(true);
@@ -124,18 +125,7 @@ const CardInputs = () => {
       </div>
       <div>
         Сопсіб оплати:
-        <Select
-          id="select"
-          value={payMeth || "Готівкою"}
-          onChange={(e: any) => {
-            valid();
-            setPayMeth(e.target.value);
-          }}
-        >
-          <MenuItem value={"Готівкою"}>Готівкою</MenuItem>
-          <MenuItem value={"Карткою"}>Карткою</MenuItem>
-          <MenuItem value={"Криптовалютою"}>Криптовалютою</MenuItem>
-        </Select>
+        <Select state={payMeth} setState={setPayMeth} />
       </div>
       <p>Сумма замовлення: {cost.toFixed(1)}$</p>
       <Alarm
