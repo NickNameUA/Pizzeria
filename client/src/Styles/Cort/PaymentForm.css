@@ -83,6 +83,12 @@
   color: green;
 }
 
+@media screen and (min-width:767px) and (max-width:1024px) {
+  :root {
+    --form-height: calc(100% - 64px)
+  }
+}
+
 @media screen and (max-width:767px) {
   #paymentForm #arrow {
     display: flex;
