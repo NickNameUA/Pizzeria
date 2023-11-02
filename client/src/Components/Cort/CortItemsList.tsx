@@ -6,7 +6,7 @@ import EmptyCort from "./EmptyCort";
 import axios from "axios";
 
 const CortItemsList = () => {
-  const [list, setList] = useState<string[]>([]);
+  const [list, setList] = useState(new Set());
   const [load, setLoad] = useState(false);
   const [len, setLen] = useState(document.querySelectorAll(".cortItem").length);
   const [menu, setMenu] = useState() as any;
@@ -30,15 +30,13 @@ const CortItemsList = () => {
 
   //Отримуємо меню з сервера
 
-  const arr = [] as any;
+  const arr = new Set();
 
   if (!load) {
-    for (let key in localStorage) {
-      if (localStorage[key] == "true") {
-        if (!arr.includes(key)) {
-          arr.push(key);
-          setList(arr);
-        }
+    for (let key in sessionStorage) {
+      if (sessionStorage[key] == "true") {
+        arr.add(key);
+        setList(arr);
       }
     }
     setLoad(true);
@@ -57,7 +55,7 @@ const CortItemsList = () => {
     <div id="cortItemsList">
       {menu != undefined &&
         menu.map((e: any) => {
-          if (list.includes(e.name)) {
+          if (list.has(e.name)) {
             return <CortItem data={e} key={e._id} />;
           }
         })}

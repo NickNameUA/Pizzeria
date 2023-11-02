@@ -15,7 +15,7 @@ const CortItem = (props: Props) => {
   //Створюємо необхідні стейти
 
   const cortDelete = () => {
-    localStorage.removeItem(props.data.name);
+    sessionStorage.removeItem(props.data.name);
     setIsDel(true);
   };
 

@@ -9,17 +9,17 @@ interface Props {
 
 const MenuItem = (props: Props) => {
   const [added, setAdded] = useState(
-    localStorage.getItem(props.data.name) || "false"
+    sessionStorage.getItem(props.data.name) || "false"
   );
 
   //Створюємо стейт для перевірки елементу на наявність
 
   const cortChange = () => {
     if (added == "false") {
-      localStorage.setItem(props.data.name, "true");
+      sessionStorage.setItem(props.data.name, "true");
       setAdded("true");
     } else {
-      localStorage.setItem(props.data.name, "false");
+      sessionStorage.setItem(props.data.name, "false");
       setAdded("false");
     }
   };
