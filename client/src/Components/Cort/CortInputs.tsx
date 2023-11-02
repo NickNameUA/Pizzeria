@@ -14,7 +14,6 @@ const CardInputs = () => {
   const [numberErr, setNumberErr] = useState(false);
   const [payMeth, setPayMeth] = useState("Готівкою") as any;
   const [cost, setCost] = useState(0);
-  const [open, setOpen] = useState(false);
   const [isValid, setIsValid] = useState(false);
   const [hide, setHide] = useState(false);
   const [collection, setCollection] = useState("") as any;
@@ -24,16 +23,6 @@ const CardInputs = () => {
       setPhoneNumb(phoneNumb.slice(0, 3) + "0" + phoneNumb.slice(4, -1));
     }
   }, [phoneNumb]);
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-  //Функції для роботи з алертом
-
   const valid = () => {
     if (!numberErr && !addressErr && !houseErr) {
       setIsValid(true);
