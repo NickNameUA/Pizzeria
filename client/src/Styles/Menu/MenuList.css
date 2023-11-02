@@ -46,7 +46,7 @@
   width: 300px;
 }
 
-.menuItem #btnContainer {
+.menuItem .btnContainer {
   display: flex;
   margin-top: auto;
   bottom: 0;
