@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
 
 #desc {
-  border-top: 5px solid black;
   display: flex;
+  box-sizing: border-box;
+  color: var(--echoBlue);
 }
 
 #desc div {
@@ -19,7 +20,7 @@
   margin: auto;
   margin-left: 0;
   font-family: 'Caveat', cursive;
-  padding: 3px 0;
+  padding: 9px 0;
 }
 
 
@@ -41,11 +42,17 @@
   width: fit-content;
   border-radius: 10px;
   margin: 0 auto;
-  border: black 2px dotted;
+  border: 4px double var(--sindad);
+  background-color: var(--desertStorm);
+  transition: all .3s;
+}
+
+#desc #menuBtn:hover {
+  opacity: 0.7;
 }
 
 #desc #menuBtn a {
-  color: black;
+  color: var(--sindad);
   text-decoration: none;
 }
 
@@ -67,7 +74,7 @@
   }
 
   #desc #logo {
-    width: 30%;
+    height: 120px;
   }
 
   #desc div div * {
@@ -97,7 +104,7 @@
   }
 
   #desc #logo {
-    width: 20%;
+    height: 100px;
   }
 
   #desc div div * {
@@ -133,7 +140,7 @@
   }
 
   #desc #logo {
-    width: 20%;
+    height: 100px;
   }
 
   #desc div div * {

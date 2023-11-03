@@ -123,7 +123,7 @@ const CreateComment = () => {
   return (
     <div>
       <div id="createComment">
-        <h1>Створити коментар</h1>
+        <h2>Створити коментар</h2>
         {nameErr != "" && <label>{nameErr}</label>}
         <div>
           <p>Ім'я:</p>

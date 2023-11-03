@@ -8,13 +8,14 @@
 #map h1 {
   text-align: center;
   font-family: 'Caveat', cursive;
+  color: var(--echoBlue);
 }
 
 #map iframe {
-  border: 5px solid black;
-  margin: auto;
+  border: 5px solid var(--echoBlue);
   box-sizing: border-box;
   width: 100%;
+  height: 100vh;
 }
 
 #map #mapBtns {
@@ -22,23 +23,23 @@
   display: flex;
   flex-wrap: wrap;
   padding: 10px 0;
-  background-color: yellowgreen;
+  background-color: var(--desertStorm);
 }
 
 #map #mapBtns button {
-  background: lightblue;
-  color: blue;
+  background: var(--desertStorm);
+  color: var(--echoBlue);
   margin: auto;
-  border: double 3px black;
+  border: double 3px var(--echoBlue);
   border-radius: 20px;
   transition: all 1s;
   font-family: 'Caveat', cursive;
 }
 
 #map #mapBtns button:hover {
-  background: blue;
-  color: lightblue;
-  border-color: white;
+  background: var(--echoBlue);
+  color: var(--desertStorm);
+  border-color: var(--echoBlue);
 }
 
 @media screen and (min-width:1024px) {

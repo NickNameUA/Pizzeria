@@ -9,17 +9,18 @@ interface Props {
 
 const SelectComp = (props: Props) => {
   return (
-    <Select
-      id="select"
-      value={props.state || "Готівкою"}
-      onChange={(e: any) => {
-        props.setState(e.target.value);
-      }}
-    >
-      <MenuItem value={"Готівкою"}>Готівкою</MenuItem>
-      <MenuItem value={"Карткою"}>Карткою</MenuItem>
-      <MenuItem value={"Криптовалютою"}>Криптовалютою</MenuItem>
-    </Select>
+    <div id="select">
+      <Select
+        value={props.state || "Готівкою"}
+        onChange={(e: any) => {
+          props.setState(e.target.value);
+        }}
+      >
+        <MenuItem value={"Готівкою"}>Готівкою</MenuItem>
+        <MenuItem value={"Карткою"}>Карткою</MenuItem>
+        <MenuItem value={"Криптовалютою"}>Криптовалютою</MenuItem>
+      </Select>
+    </div>
   );
 };
 

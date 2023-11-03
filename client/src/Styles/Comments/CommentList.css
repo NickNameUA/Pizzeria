@@ -8,15 +8,17 @@
 }
 
 .commentItem {
-  border: 5px double black;
+  border: 5px double var(--iceberg);
+  border-radius: 20px;
   margin: 5px auto;
   padding: 10px;
   width: fit-content;
   height: fit-content;
-  background: lightgray;
+  background: var(--echoBlue);
 }
 
 .commentItem p {
+  color: var(--iceberg);
   text-align: center;
   font-family: 'Caveat', cursive;
   font-size: 20px;
@@ -34,5 +36,5 @@
 
 .starCon * {
   margin: auto;
-  color: darkgoldenrod;
+  color: var(--desertStorm);
 }

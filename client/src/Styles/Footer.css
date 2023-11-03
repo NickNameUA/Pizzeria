@@ -1,6 +1,5 @@
 footer {
-  background-color: black;
-  color: white;
+  background-color: var(--echoBlue);
   display: flex;
   flex-wrap: wrap;
 }
@@ -12,13 +11,13 @@ footer div {
 
 footer .text {
   text-decoration: none;
-  color: white;
+  color: var(--desertStorm);
   font-style: italic;
 }
 
 footer .category {
   text-decoration: none;
-  color: white;
+  color: var(--desertStorm);
   text-align: center;
   font-style: italic;
 }

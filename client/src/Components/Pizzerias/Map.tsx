@@ -33,7 +33,7 @@ const Map = () => {
   return (
     <main id="map">
       <h1>Вул.{map}</h1>
-      <iframe src={mapSrc} width="800" height="600" loading="lazy"></iframe>
+      <iframe src={mapSrc} loading="lazy"></iframe>
       <div id="mapBtns">
         <Button
           onClick={() => {

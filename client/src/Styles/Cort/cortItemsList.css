@@ -7,18 +7,23 @@
   height: 100%;
 }
 
+#cortItemsList h2 {
+  margin: 0;
+  font-size: 30px;
+}
 
 .cortItem {
   height: initial;
   width: inherit;
   max-width: 400px;
-  border: 1px solid black;
+  border: 2px solid var(--echoBlue);
   padding: 10px;
-  background-color: beige;
+  background-color: var(--pattensBlue);
   display: flex;
   font-family: 'Caveat', cursive;
   margin: 10px auto;
   min-width: 200px;
+  color: var(--echoBlue);
 }
 
 .cortItem img {
@@ -66,7 +71,14 @@
   height: 35px;
   font-size: 30px;
   border-radius: 50%;
-  border: 0;
+  border: 1px solid var(--echoBlue);
+  color: var(--echoBlue);
+  background-color: var(--appleGreen);
+}
+
+.cortItem .countBtns button:disabled {
+  background-color: var(--desertStorm);
+
 }
 
 .cortItem span {
@@ -84,9 +96,9 @@
   font-size: 12px;
   margin-bottom: 0;
   border-radius: 20px;
-  border: 2px red solid;
-  background-color: pink;
-  color: red;
+  border: 2px var(--echoBlue) solid;
+  background-color: var(--echoBlue);
+  color: var(--desertStorm);
   width: 180px;
   transition: all 0.3s;
 }
@@ -94,6 +106,7 @@
 .cortItem .delete:hover {
   padding: 3px;
   border-radius: 10px;
+  background-color: var(--echoBlue);
 }
 
 .deletedItem {

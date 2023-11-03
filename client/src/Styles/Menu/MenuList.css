@@ -8,6 +8,7 @@
 }
 
 #menuList h2 {
+  color: var(--echoBlue);
   width: 100%;
   font-family: 'Caveat', cursive;
   text-align: center;
@@ -18,15 +19,12 @@
   margin: 10px auto;
   width: fit-content;
   height: initial;
-  border: 1px solid black;
+  border: 2px solid var(--echoBlue);
   padding: 10px;
-  background-color: beige;
+  background-color: var(--pattensBlue);
   display: flex;
   flex-direction: column;
-}
-
-.deletedItem {
-  display: none;
+  color: var(--echoBlue);
 }
 
 .menuItem img {
@@ -54,23 +52,21 @@
 
 .menuItem button {
   margin: auto;
-  border: 2px green solid;
   border-radius: 20px;
-  color: green;
 }
 
 .menuItem button.delete {
-  border: 2px red solid;
-  background-color: pink;
-  color: red;
+  border: 2px var(--echoBlue) solid;
+  background-color: var(--echoBlue);
+  color: var(--desertStorm);
   width: 190px;
   transition: all 0.5s;
 }
 
 .menuItem button.add {
-  border: 2px yellowgreen solid;
-  background-color: green;
-  color: yellowgreen;
+  border: 2px var(--echoBlue) solid;
+  background-color: var(--desertStorm);
+  color: var(--echoBlue);
   width: 180px;
   transition: all 0.5s;
 }
