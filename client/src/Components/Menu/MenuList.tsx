@@ -7,14 +7,18 @@ import MenuItem from "./MenuItem";
 
 const MenuList = () => {
   const [menu, setMenu] = useState("") as any;
+  const [scrolled, setScrolled] = useState(false);
 
   //Створюємо стейт для меню
 
   const handleScroll = (anchor: string) => {
-    const el = document.querySelector(`${anchor}Anchor`) as any;
-    const scrollY =
-      el.getBoundingClientRect().y + el.getBoundingClientRect().height;
-    window.scroll(0, scrollY + 10);
+    if (!scrolled && ["#pizza", "#desert", "#drinks"].includes(anchor)) {
+      const el = document.querySelector(`${anchor}Anchor`) as any;
+      const scrollY =
+        el.getBoundingClientRect().y + el.getBoundingClientRect().height;
+      window.scroll(0, scrollY + 10);
+      setScrolled(true);
+    }
   };
 
   //Функція для скролла до обраної категорії
