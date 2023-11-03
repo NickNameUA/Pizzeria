@@ -9,7 +9,7 @@ interface Props {
 }
 
 const CortItem = (props: Props) => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
   const [isDel, setIsDel] = useState(false);
 
   //Створюємо необхідні стейти
@@ -24,7 +24,7 @@ const CortItem = (props: Props) => {
   return (
     <div className={isDel ? "deletedItem" : "cortItem"}>
       <div className="preVeiw">
-        <p>{props.data.name}</p>
+        <h2>{props.data.name}</h2>
         <img src={getPhoto(props.data.name)} />
         <p>Кількість</p>
         <div className="countBtns">

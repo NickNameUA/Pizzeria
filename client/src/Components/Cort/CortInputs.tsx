@@ -16,7 +16,6 @@ const CardInputs = () => {
   const [numberErr, setNumberErr] = useState(false);
   const [payMeth, setPayMeth] = useState("Готівкою") as any;
   const [cost, setCost] = useState(0);
-  const [isValid, setIsValid] = useState(false);
   const [hide, setHide] = useState(false);
   const [collection, setCollection] = useState("") as any;
 
@@ -29,8 +28,18 @@ const CardInputs = () => {
   }, [phoneNumb]);
 
   const valid = () => {
-    if (!numberErr && !addressErr && !houseErr) {
-      setIsValid(true);
+    if (phoneNumb != "") {
+      if (address != "") {
+        if (house != "") {
+          return true;
+        } else {
+          setHouseErr(true);
+        }
+      } else {
+        setAddressErr(true);
+      }
+    } else {
+      setNumberErr(true);
     }
   };
 
@@ -129,12 +138,12 @@ const CardInputs = () => {
       </div>
       <p>Сумма замовлення: {cost.toFixed(1)}$</p>
       <Alarm
-        isValid={isValid}
+        isValid={valid}
         address={address}
         house={house}
         phoneNumb={phoneNumb}
         payMeth={payMeth}
-        cost={0}
+        cost={cost}
       />
     </form>
   );

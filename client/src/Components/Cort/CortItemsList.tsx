@@ -59,7 +59,7 @@ const CortItemsList = () => {
             return <CortItem data={e} key={e._id} />;
           }
         })}
-      ;{len == 0 && <EmptyCort />}
+      {len == 0 && <EmptyCort />}
     </div>
   );
 };

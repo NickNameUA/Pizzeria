@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 
 interface Props {
-  isValid: boolean;
+  isValid: Function;
   address: string;
   house: string;
   phoneNumb: string;
@@ -36,7 +36,7 @@ const Alarm = (props: Props) => {
       <Button
         id="buyBtn"
         onClick={() => {
-          if (props.isValid) {
+          if (props.isValid()) {
             handleClickOpen();
           }
         }}
