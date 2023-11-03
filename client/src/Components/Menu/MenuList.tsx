@@ -10,6 +10,15 @@ const MenuList = () => {
 
   //Створюємо стейт для меню
 
+  const handleScroll = (anchor: string) => {
+    const el = document.querySelector(`${anchor}Anchor`) as any;
+    const scrollY =
+      el.getBoundingClientRect().y + el.getBoundingClientRect().height;
+    window.scroll(0, scrollY + 10);
+  };
+
+  //Функція для скролла до обраної категорії
+
   const getMenu = async () => {
     await axios
       .get("https://inst-test-9c942bc3025d.herokuapp.com/api/get/menu")
@@ -21,10 +30,18 @@ const MenuList = () => {
   useEffect(() => {
     if (menu == "") {
       getMenu();
+      //Отримуємо меню з сервера
+    } else {
+      const link = window.location.href.replace(
+        "http://localhost:3000/#/menu",
+        ""
+      );
+
+      link != "" && handleScroll(link);
+
+      //Перевіряємо чи обрав користувач якусь категорію
     }
   });
-
-  //Отримуємо меню з сервера
 
   const pizza = [] as any;
   const desert = [] as any;
@@ -51,11 +68,11 @@ const MenuList = () => {
   //Сортуємо меню по категоріях і назві
   return (
     <main id="menuList">
-      <h2>Піци</h2>
+      <h2 id="pizzaAnchor">Піци</h2>
       {pizza}
-      <h2>Напої</h2>
+      <h2 id="drinksAnchor">Напої</h2>
       {drinks}
-      <h2>Десерти</h2>
+      <h2 id="desertAnchor">Десерти</h2>
       {desert}
     </main>
   );
