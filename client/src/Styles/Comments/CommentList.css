@@ -5,7 +5,6 @@
   width: 90%;
   box-sizing: border-box;
   margin: auto;
-  min-height: calc(100vh - 150px);
 }
 
 .commentItem {
