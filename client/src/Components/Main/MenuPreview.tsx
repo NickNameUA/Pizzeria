@@ -13,9 +13,9 @@ const MenuPreview = () => {
     <div id="menuPrv">
       <p>Можливо вас зацікавить</p>
       <div id="btns">
-        <PreviewBtn name="Піцца" img={Pizza} link={"#pizza"} />
+        <PreviewBtn name="Піцца" img={Pizza} link={"#pizzas"} />
         <PreviewBtn name="Напої" img={Drinks} link={"#drinks"} />
-        <PreviewBtn name="Десерти" img={Dessert} link={"#desert"} />
+        <PreviewBtn name="Десерти" img={Dessert} link={"#deserts"} />
       </div>
     </div>
   );

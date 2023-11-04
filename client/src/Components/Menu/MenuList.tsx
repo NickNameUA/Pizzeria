@@ -4,51 +4,51 @@ import axios from "axios";
 import "../../Styles/Menu/MenuList.css";
 
 import MenuItem from "./MenuItem";
+import MenuNav from "./MenuNav";
+
+const getCtg = () => {
+  const link = window.location.href;
+  const index = window.location.href.indexOf("#");
+  return link.slice(index + 7) || "all";
+};
+
+//Функція отримання категорії
 
 const MenuList = () => {
   const [menu, setMenu] = useState("") as any;
-  const [scrolled, setScrolled] = useState(false);
-
-  //Створюємо стейт для меню
-
-  const handleScroll = (anchor: string) => {
-    if (!scrolled && ["#pizza", "#desert", "#drinks"].includes(anchor)) {
-      const el = document.querySelector(`${anchor}Anchor`) as any;
-      const scrollY =
-        el.getBoundingClientRect().y + el.getBoundingClientRect().height;
-      window.scroll(0, scrollY + 10);
-      setScrolled(true);
-    }
-  };
-
-  //Функція для скролла до обраної категорії
+  const [ctg, setCtg] = useState(getCtg());
+  //Створюємо необхідні стейти
 
   const getMenu = async () => {
     await axios
       .get("https://inst-test-9c942bc3025d.herokuapp.com/api/get/menu")
-      .then((res) => {
-        setMenu(res.data);
+      .then(async (res) => {
+        await setMenu(res.data);
       })
       .catch((err) => console.log(err));
   };
+
+  const getMenuCtg = (category: string, title: string, arr: Array<any>) => {
+    if (ctg == category || ctg == "all") {
+      return (
+        <>
+          <h2>{title}</h2> {arr}
+        </>
+      );
+    }
+  };
+
+  //Елемент меню
+
   useEffect(() => {
     if (menu == "") {
       getMenu();
       //Отримуємо меню з сервера
-    } else {
-      const link = window.location.href.replace(
-        "http://localhost:3000/#/menu",
-        ""
-      );
-
-      link != "" && handleScroll(link);
-
-      //Перевіряємо чи обрав користувач якусь категорію
     }
   });
 
-  const pizza = [] as any;
-  const desert = [] as any;
+  const pizzas = [] as any;
+  const deserts = [] as any;
   const drinks = [] as any;
 
   menu != "" &&
@@ -63,21 +63,19 @@ const MenuList = () => {
         return 0;
       })
       .map((e: any) => {
-        e.category == "Піца" && pizza.push(<MenuItem key={e._id} data={e} />);
+        e.category == "Піца" && pizzas.push(<MenuItem key={e._id} data={e} />);
         e.category == "Напій" && drinks.push(<MenuItem key={e._id} data={e} />);
         e.category == "Десерт" &&
-          desert.push(<MenuItem key={e._id} data={e} />);
+          deserts.push(<MenuItem key={e._id} data={e} />);
       });
 
   //Сортуємо меню по категоріях і назві
   return (
     <main id="menuList">
-      <h2 id="pizzaAnchor">Піци</h2>
-      {pizza}
-      <h2 id="drinksAnchor">Напої</h2>
-      {drinks}
-      <h2 id="desertAnchor">Десерти</h2>
-      {desert}
+      <MenuNav setState={setCtg} />
+      {getMenuCtg("pizzas", "Піцца", pizzas)}
+      {getMenuCtg("drinks", "Напої", drinks)}
+      {getMenuCtg("deserts", "Десерти", deserts)}
     </main>
   );
 };
