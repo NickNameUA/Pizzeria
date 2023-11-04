@@ -4,6 +4,7 @@ import "../..//Styles/Cort/cortItemsList.css";
 import CortItem from "./CortItem";
 import EmptyCort from "./EmptyCort";
 import axios from "axios";
+import ScrollTopBtn from "../ScrollTopBtn";
 
 const CortItemsList = () => {
   const [list, setList] = useState(new Set());
@@ -60,6 +61,7 @@ const CortItemsList = () => {
           }
         })}
       {len == 0 && <EmptyCort />}
+      <ScrollTopBtn />
     </div>
   );
 };
