@@ -96,3 +96,9 @@
 #createComment .star {
   cursor: pointer;
 }
+
+@media screen and (max-width: 764px) {
+  #createComment h2 {
+    font-size: 21px;
+  }
+}

@@ -24,7 +24,7 @@ const CortItem = (props: Props) => {
   return (
     <div className={isDel ? "deletedItem" : "cortItem"}>
       <div className="preVeiw">
-        <h2>{props.data.name}</h2>
+        <p className="title">{props.data.name}</p>
         <img src={getPhoto(props.data.name)} />
         <p>Кількість</p>
         <div className="countBtns">

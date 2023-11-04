@@ -1,6 +1,7 @@
 #commentList {
   display: flex;
   flex-wrap: wrap;
+  align-content: flex-start;
   width: 90%;
   box-sizing: border-box;
   margin: auto;
@@ -36,4 +37,10 @@
 .starCon * {
   margin: auto;
   color: var(--desertStorm);
+}
+
+@media screen and (max-width: 764px) {
+  .commentItem p.name {
+    font-size: 20px;
+  }
 }
