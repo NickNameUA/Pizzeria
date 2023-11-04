@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import getPhoto from "../photos";
+import getPhoto from "../../photos";
 import { Button } from "@mui/material";
 
 interface Props {
@@ -8,27 +8,28 @@ interface Props {
 }
 
 const MenuItem = (props: Props) => {
-  const [photo, setPhoto] = useState(getPhoto(props.data.name));
   const [added, setAdded] = useState(
-    localStorage.getItem(props.data.name) || "false"
+    sessionStorage.getItem(props.data.name) || "false"
   );
-  //Створюємо необхідні стейти
+
+  //Створюємо стейт для перевірки елементу на наявність
 
   const cortChange = () => {
     if (added == "false") {
-      localStorage.setItem(props.data.name, "true");
+      sessionStorage.setItem(props.data.name, "true");
       setAdded("true");
     } else {
-      localStorage.setItem(props.data.name, "false");
+      sessionStorage.setItem(props.data.name, "false");
       setAdded("false");
     }
   };
+
   //Функція для додавання та вилучання позиції меню з замовлення
 
   return (
     <div className="menuItem">
       <p>{props.data.name}</p>
-      <img src={photo} />
+      <img src={getPhoto(props.data.name)} />
       <div>
         <p>Ціна: {props.data.cost}$</p>
         <p>Вага: {props.data.weight}г</p>
@@ -43,7 +44,7 @@ const MenuItem = (props: Props) => {
           </>
         )}
       </div>
-      <div id="btnContainer">
+      <div className="btnContainer">
         <Button
           className={added == "false" ? "btn add" : "btn delete"}
           onClick={() => {

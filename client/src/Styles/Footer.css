@@ -1,26 +1,22 @@
 footer {
-  background-color: black;
-  color: white;
+  background-color: var(--echoBlue);
   display: flex;
   flex-wrap: wrap;
 }
 
 footer div {
   margin: 0 auto;
-  z-index: 2;
 }
 
 footer .text {
   text-decoration: none;
-  color: white;
-  font-style: italic;
+  color: var(--desertStorm);
 }
 
 footer .category {
   text-decoration: none;
-  color: white;
+  color: var(--desertStorm);
   text-align: center;
-  font-style: italic;
 }
 
 @media screen and (min-width:1024px) {

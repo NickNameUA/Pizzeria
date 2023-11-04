@@ -1,0 +1,25 @@
+#ScrollTopBtn {
+  transition: all 0.08s;
+  position: fixed;
+  background-color: var(--pattensBlue);
+  color: var(--echoBlue);
+  border-radius: 50%;
+  border: 1px solid var(--echoBlue);
+  padding: 0;
+  z-index: 0;
+}
+
+#ScrollTopBtn.hiden {
+  bottom: -64px;
+  right: -64px;
+}
+
+#ScrollTopBtn.visible {
+  bottom: 10px;
+  right: 10px;
+}
+
+#ScrollTopBtn * {
+  width: 64px;
+  height: 64px;
+}

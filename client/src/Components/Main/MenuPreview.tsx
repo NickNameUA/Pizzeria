@@ -1,34 +1,21 @@
 import React from "react";
 
 import "../../Styles/Main/MenuPreview.css";
-import { Button } from "@mui/material";
-import Pizza from "../../img/pizza.png";
-import Drinks from "../../img/drinks.png";
-import Dessert from "../../img/dessert.png";
+
+import Pizza from "../../img/pizza.webp";
+import Drinks from "../../img/drinks.webp";
+import Dessert from "../../img/dessert.webp";
+
+import PreviewBtn from "./MenuPreviewBtn";
 
 const MenuPreview = () => {
   return (
     <div id="menuPrv">
       <p>Можливо вас зацікавить</p>
       <div id="btns">
-        <div>
-          <Button>
-            <img src={Pizza} alt="Pizza" />
-          </Button>
-          <p>Піцца</p>
-        </div>
-        <div>
-          <Button>
-            <img src={Drinks} alt="Drinks" />
-          </Button>
-          <p>Напої</p>
-        </div>
-        <div>
-          <Button>
-            <img src={Dessert} alt="Dessert" />
-          </Button>
-          <p>Десерти</p>
-        </div>
+        <PreviewBtn name="Піцца" img={Pizza} link={"#pizzas"} />
+        <PreviewBtn name="Напої" img={Drinks} link={"#drinks"} />
+        <PreviewBtn name="Десерти" img={Dessert} link={"#deserts"} />
       </div>
     </div>
   );

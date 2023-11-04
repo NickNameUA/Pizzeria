@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import getPhoto from "../photos";
+import getPhoto from "../../photos";
 import { Button } from "@mui/material";
 import axios from "axios";
 
@@ -9,22 +9,23 @@ interface Props {
 }
 
 const CortItem = (props: Props) => {
-  const [photo, setPhoto] = useState(getPhoto(props.data.name));
   const [count, setCount] = useState(1);
   const [isDel, setIsDel] = useState(false);
-  //Створення необхідний стейтів
+
+  //Створюємо необхідні стейти
 
   const cortDelete = () => {
-    localStorage.removeItem(props.data.name);
+    sessionStorage.removeItem(props.data.name);
     setIsDel(true);
   };
-  //Видалення позиції менб з замовлення
+
+  //Функція видалення позиції меню з замовлення
 
   return (
     <div className={isDel ? "deletedItem" : "cortItem"}>
       <div className="preVeiw">
-        <p>{props.data.name}</p>
-        <img src={photo} />
+        <p className="title">{props.data.name}</p>
+        <img src={getPhoto(props.data.name)} />
         <p>Кількість</p>
         <div className="countBtns">
           <button
@@ -56,7 +57,7 @@ const CortItem = (props: Props) => {
         {props.data != undefined && props.data.structure != undefined && (
           <>
             <p>Склад</p>
-            <ul id="ul">
+            <ul>
               {props.data.structure != undefined &&
                 props.data.structure.map((e: string) => <li key={e}>{e}</li>)}
             </ul>

@@ -1,0 +1,31 @@
+#menuNav {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  padding: 0;
+}
+
+#menuNav h2 {
+  margin: 10px 0;
+}
+
+#menuNav div {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+}
+
+#menuNav div button {
+  color: var(--echoBlue);
+  background-color: var(--pattensBlue);
+  font-size: 20px;
+  border: 1px solid var(--echoBlue);
+  border-radius: 0;
+  font-family: 'Bitter', serif;
+}
+
+@media screen and (max-width: 764px) {
+  #menuNav div button {
+    font-size: 15px;
+  }
+}

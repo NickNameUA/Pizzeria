@@ -1,25 +1,41 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "@mui/material";
+import axios from "axios";
 
 import StarIcon from "@mui/icons-material/Star";
 import StarOutlineIcon from "@mui/icons-material/StarOutline";
 import SendIcon from "@mui/icons-material/Send";
 
 import "../../Styles/Comments/CreateComment.css";
-import axios from "axios";
 
 const CreateComment = () => {
   const [name, setName] = useState("");
+  const [nameErr, setNameErr] = useState("");
   const [text, setText] = useState("");
   const [starCount, setStarCount] = useState(0);
+  const [starErr, setStarErr] = useState("");
   const [selected, setSelected] = useState(0);
   const [onHover, setOnHover] = useState(false);
 
+  //Створюємо стейти
+
   const validate = () => {
-    if (name != "" && name.length > 3 && selected != 0) {
+    if (selected == 0) {
+      setStarErr("Oберіть оцінку");
+    }
+    if (name == "") {
+      setNameErr("Введіть ім'я");
+    }
+    if (name != "" && name.length >= 3 && selected != 0) {
       return true;
     }
   };
+
+  useEffect(() => {
+    selected != 0 && setStarErr("");
+  }, [selected]);
+
+  //Валідація інпутів
 
   const submit = async () => {
     if (validate()) {
@@ -40,77 +56,38 @@ const CreateComment = () => {
     }
   };
 
+  //Відправка данних з коментарію на сервер
+
   setTimeout(() => {
-    const star1 = document.getElementById("star1") as Element;
+    const handleStarHover = (starNumber: number) => {
+      return () => {
+        setStarCount(starNumber);
+        setOnHover(true);
+      };
+    };
 
-    star1.addEventListener("mouseover", () => {
-      setStarCount(1);
-      setOnHover(true);
-    });
+    const handleStarMouseOut = (starNumber: number) => {
+      return () => {
+        if (selected !== starNumber) {
+          setStarCount(0);
+        }
+        setOnHover(false);
+      };
+    };
 
-    star1.addEventListener("mouseout", () => {
-      if (selected != 1) {
-        setStarCount(0);
-      }
-      setOnHover(false);
-    });
+    const addStarEventListeners = (starNumber: number) => {
+      const star = document.getElementById(`star${starNumber}`) as any;
 
-    const star2 = document.getElementById("star2") as Element;
+      star.addEventListener("mouseover", handleStarHover(starNumber));
+      star.addEventListener("mouseout", handleStarMouseOut(starNumber));
+    };
 
-    star2.addEventListener("mouseover", () => {
-      setStarCount(2);
-      setOnHover(true);
-    });
-
-    star2.addEventListener("mouseout", () => {
-      if (selected != 2) {
-        setStarCount(0);
-      }
-      setOnHover(false);
-    });
-
-    const star3 = document.getElementById("star3") as Element;
-
-    star3.addEventListener("mouseover", () => {
-      setStarCount(3);
-      setOnHover(true);
-    });
-
-    star3.addEventListener("mouseout", () => {
-      if (selected != 3) {
-        setStarCount(0);
-      }
-      setOnHover(false);
-    });
-
-    const star4 = document.getElementById("star4") as Element;
-
-    star4.addEventListener("mouseover", () => {
-      setStarCount(4);
-      setOnHover(true);
-    });
-
-    star4.addEventListener("mouseout", () => {
-      if (selected != 4) {
-        setStarCount(0);
-      }
-      setOnHover(false);
-    });
-
-    const star5 = document.getElementById("star5") as Element;
-
-    star5.addEventListener("mouseover", () => {
-      setStarCount(5);
-      setOnHover(true);
-    });
-
-    star5.addEventListener("mouseout", () => {
-      if (selected != 5) {
-        setStarCount(0);
-      }
-      setOnHover(false);
-    });
+    for (let i = 1; i <= 5; i++) {
+      addStarEventListeners(i);
+    }
   }, 1);
+
+  //Додаємо прослуховувачів подій для всіх зірок
 
   const getStar = (count: number) => {
     if (
@@ -142,21 +119,26 @@ const CreateComment = () => {
     }
   };
 
+  //Функція для перевірки чи повинна бути зірка активною
   return (
     <div>
       <div id="createComment">
-        <h1>Створити коментар</h1>
+        <h2>Створити коментар</h2>
+        {nameErr != "" && <label>{nameErr}</label>}
         <div>
           <p>Ім'я:</p>
           <input
             value={name}
             type="text"
             onChange={(e) => {
+              e.target.value.length < 3
+                ? setNameErr("Надто коротке ім'я")
+                : setNameErr("");
               setName(e.target.value);
             }}
           />
         </div>
-        <div>
+        <div id="txtCont">
           <p>Текст коментару:</p>
           <textarea
             value={text}
@@ -165,6 +147,7 @@ const CreateComment = () => {
             }}
           />
         </div>
+        {starErr != "" && <label>{starErr}</label>}
         <div className="starCon">
           {getStar(1)}
           {getStar(2)}

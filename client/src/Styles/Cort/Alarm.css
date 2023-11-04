@@ -1,0 +1,15 @@
+#message #title {
+  font-family: 'Bitter', serif;
+  background-color: var(--pattensBlue);
+  color: var(--echoBlue);
+}
+
+#message #text {
+  background-color: var(--pattensBlue);
+}
+
+#message #text * {
+  padding-top: 0;
+  font-family: 'Bitter', serif;
+  color: var(--echoBlue);
+}

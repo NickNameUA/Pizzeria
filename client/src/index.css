@@ -1,21 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@400&display=swap');
+
+:root {
+  --echoBlue: rgb(163, 184, 205);
+  --sindad: rgb(176, 209, 216);
+  --iceberg: rgb(198, 223, 217);
+  --appleGreen: rgb(217, 231, 214);
+  --desertStorm: rgb(239, 232, 226);
+  --pattensBlue: rgb(232, 241, 246);
+}
+
 body {
   margin: 0;
+  background-color: var(--desertStorm);
+  font-family: 'Bitter', serif;
+}
+
+#root main {
+  min-height: calc(100vh - 245px);
 }
 
 @media screen and (min-width:1024px) {
-  #root>div:not(#NavBar):nth-child(2) {
-    padding-top: 66px;
+  #root main {
+    padding-top: 74px;
   }
 }
 
 @media screen and (min-width:767px) and (max-width:1024px) {
-  #root>div:not(#NavBar):nth-child(2) {
-    padding-top: 59px;
+  #root main {
+    padding-top: 64px;
   }
 }
 
 @media screen and (max-width:767px) {
-  #root>div:not(#NavBar):nth-child(2) {
-    padding-top: 50px;
+  #root main {
+    padding-top: 54px;
   }
 }

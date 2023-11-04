@@ -1,8 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
-
 #desc {
-  border-top: 5px solid black;
   display: flex;
+  box-sizing: border-box;
+  color: var(--echoBlue);
 }
 
 #desc div {
@@ -18,8 +17,7 @@
   flex-direction: column;
   margin: auto;
   margin-left: 0;
-  font-family: 'Caveat', cursive;
-  padding: 3px 0;
+  padding: 9px 0;
 }
 
 
@@ -41,12 +39,19 @@
   width: fit-content;
   border-radius: 10px;
   margin: 0 auto;
-  border: black 2px dotted;
+  border: 4px double var(--sindad);
+  background-color: var(--desertStorm);
+  transition: all .3s;
+}
+
+#desc #menuBtn:hover {
+  opacity: 0.7;
 }
 
 #desc #menuBtn a {
-  color: black;
+  color: var(--sindad);
   text-decoration: none;
+  font-family: 'Bitter', serif;
 }
 
 @media screen and (min-width:1024px) {
@@ -59,7 +64,7 @@
   }
 
   #desc div p {
-    font-size: 25px;
+    font-size: 20px;
   }
 
   #desc div #photo {
@@ -67,11 +72,11 @@
   }
 
   #desc #logo {
-    width: 30%;
+    height: 120px;
   }
 
   #desc div div * {
-    font-size: 30px;
+    font-size: 40px;
   }
 
   #desc #menuBtn {
@@ -89,7 +94,7 @@
   }
 
   #desc div p {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   #desc div #photo {
@@ -97,7 +102,7 @@
   }
 
   #desc #logo {
-    width: 20%;
+    height: 100px;
   }
 
   #desc div div * {
@@ -125,7 +130,7 @@
   }
 
   #desc div p {
-    font-size: 15px;
+    font-size: 13px;
   }
 
   #desc div #photo {
@@ -133,7 +138,7 @@
   }
 
   #desc #logo {
-    width: 20%;
+    height: 100px;
   }
 
   #desc div div * {

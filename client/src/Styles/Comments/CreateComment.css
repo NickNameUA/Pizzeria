@@ -5,19 +5,20 @@
   margin-top: 10px;
   display: flex;
   flex-direction: column;
-  background-color: aquamarine;
+  background-color: var(--echoBlue);
   box-sizing: border-box;
-  border: 2px solid black;
+  border: 2px solid var(--iceberg);
   border-radius: 50px;
 }
 
-#createComment * {
-  font-family: 'Caveat', cursive;
+#createComment h2 {
+  font-size: 31px;
 }
 
-#createComment h1,
+#createComment h2,
 #createComment p {
   text-align: center;
+  color: var(--iceberg);
 }
 
 #createComment p {
@@ -31,8 +32,18 @@
   width: 100%;
 }
 
-#createComment div:nth-child(3) {
+#createComment #txtCont {
   display: block;
+}
+
+#createComment label {
+  background-color: var(--iceberg);
+  font-size: 25px;
+  margin: auto;
+  padding: 0 10px;
+  border-radius: 20px;
+  opacity: 80%;
+  color: var(--echoBlue);
 }
 
 #createComment input,
@@ -44,6 +55,8 @@
   font-size: 20px;
   margin: auto;
   text-align: center;
+  background-color: var(--desertStorm);
+  color: var(--echoBlue);
 }
 
 #createComment textarea {
@@ -57,12 +70,17 @@
 #createComment button {
   width: fit-content;
   margin: auto;
-  color: black;
-  background-color: lightgray;
-  border: 1px black solid;
+  background: none;
+  border: 2px var(--sindad) solid;
   border-radius: 20px;
   display: flex;
   width: 200px;
+  transition: all .6s;
+  font-family: 'Bitter', serif;
+}
+
+#createComment button:hover {
+  background-color: var(--pattensBlue);
 }
 
 #createComment button p {
@@ -71,10 +89,16 @@
 }
 
 #createComment button p * {
-  margin: auto 5px;
+  margin: 8px 5px;
   font-size: 20px;
 }
 
 #createComment .star {
   cursor: pointer;
+}
+
+@media screen and (max-width: 764px) {
+  #createComment h2 {
+    font-size: 21px;
+  }
 }

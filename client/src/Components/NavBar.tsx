@@ -11,38 +11,38 @@ import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
   return (
-    <div id="NavBar">
+    <nav id="NavBar">
       <button>
-        <NavLink to="/">
+        <div>
           <HomeIcon className="icon" sx={{ fontSize: 40 }} />
-          Головна
-        </NavLink>
+          <NavLink to="/">Головна</NavLink>
+        </div>
       </button>
       <button>
-        <NavLink to="/menu">
+        <div>
           <LocalPizzaIcon id="pizza" className="icon" sx={{ fontSize: 40 }} />
-          Меню
-        </NavLink>
+          <NavLink to="/menu">Меню</NavLink>
+        </div>
       </button>
       <button>
-        <NavLink to="/comments">
+        <div>
           <GradeIcon className="icon" sx={{ fontSize: 40 }} />
-          Відгуки
-        </NavLink>
+          <NavLink to="/comments">Відгуки</NavLink>
+        </div>
       </button>
       <button>
-        <NavLink to="/pizzerias">
+        <div>
           <StorefrontIcon className="icon" sx={{ fontSize: 40 }} />
-          Піцеерії
-        </NavLink>
+          <NavLink to="/pizzerias">Піцеерії</NavLink>
+        </div>
       </button>
       <button>
-        <NavLink to="/cort">
+        <div>
           <ShoppingCartIcon className="icon" sx={{ fontSize: 40 }} />
-          Кошик
-        </NavLink>
+          <NavLink to="/cort">Кошик</NavLink>
+        </div>
       </button>
-    </div>
+    </nav>
   );
 };
 export default NavBar;

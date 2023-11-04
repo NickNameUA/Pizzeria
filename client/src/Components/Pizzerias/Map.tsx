@@ -7,6 +7,8 @@ const Map = () => {
   const [map, setMap] = useState("Заводська 13г");
   const [mapSrc, setMapSrc] = useState("");
 
+  //Створення необхідних стейтів
+
   useEffect(() => {
     switch (map) {
       case "Заводська 13г":
@@ -27,10 +29,11 @@ const Map = () => {
     }
   }, [map]);
 
+  //Зміна посилання на карту
   return (
-    <div id="map">
+    <main id="map">
       <h1>Вул.{map}</h1>
-      <iframe src={mapSrc} width="800" height="600" loading="lazy"></iframe>
+      <iframe src={mapSrc} loading="lazy"></iframe>
       <div id="mapBtns">
         <Button
           onClick={() => {
@@ -54,7 +57,7 @@ const Map = () => {
           Головна
         </Button>
       </div>
-    </div>
+    </main>
   );
 };
 export default Map;

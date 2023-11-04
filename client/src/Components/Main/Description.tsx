@@ -1,6 +1,6 @@
 import React from "react";
-import Photo from "../../img/DescPhoto.jpg";
-import Logo from "../../img/Logo.png";
+import Photo from "../../img/DescPhoto.webp";
+import Logo from "../../img/Logo.webp";
 import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
 

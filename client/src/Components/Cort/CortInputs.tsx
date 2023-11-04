@@ -1,53 +1,50 @@
 import React, { useEffect, useState } from "react";
-import "../../Styles/Cort/PaymentForm.css";
 import { IMaskInput } from "react-imask";
-import {
-  Select,
-  MenuItem,
-  Button,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
-} from "@mui/material";
 import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
+
+import Select from "./SelectComp";
+import Alarm from "./Alarm";
+
+import "../../Styles/Cort/PaymentForm.css";
 
 const CardInputs = () => {
   const [address, setAddress] = useState("") as any;
+  const [addressErr, setAddressErr] = useState(false);
   const [house, setHouse] = useState("") as any;
+  const [houseErr, setHouseErr] = useState(false);
   const [phoneNumb, setPhoneNumb] = useState("") as any;
+  const [numberErr, setNumberErr] = useState(false);
   const [payMeth, setPayMeth] = useState("Готівкою") as any;
   const [cost, setCost] = useState(0);
-  const [open, setOpen] = useState(false);
-  const [isValid, setIsValid] = useState(false);
   const [hide, setHide] = useState(false);
   const [collection, setCollection] = useState("") as any;
+
   //Створюємо необхідні стейти
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-  //Функції для роботи з алертом
+  useEffect(() => {
+    if (phoneNumb.length > 3 && phoneNumb.slice(3, 4) != "0") {
+      setPhoneNumb(phoneNumb.slice(0, 3) + "0" + phoneNumb.slice(4, -1));
+    }
+  }, [phoneNumb]);
 
   const valid = () => {
-    if (address != "" && house != "" && phoneNumb != "" && cost != 0) {
-      if (
-        address.length > 8 &&
-        house.length > 0 &&
-        phoneNumb.replace(/[^\d]/g, "").length == 12
-      ) {
-        setIsValid(true);
+    if (phoneNumb != "") {
+      if (address != "") {
+        if (house != "") {
+          return true;
+        } else {
+          setHouseErr(true);
+        }
       } else {
-        setIsValid(false);
+        setAddressErr(true);
       }
+    } else {
+      setNumberErr(true);
     }
   };
+
   //Валідація інпутів
+
   window.onscroll = () => {
     const navBar = document.querySelector("#NavBar") as any;
     const height = getComputedStyle(navBar, null).height.replace(
@@ -59,7 +56,9 @@ const CardInputs = () => {
       `calc(100% - ${window.scrollY <= height ? height - window.scrollY : 0}px)`
     );
   };
-  //Моніторинг висоти навбара та зміна висоти блока інпутів}
+
+  //Моніторинг висоти навбара та зміна висоти блока інпутів
+
   setInterval(() => {
     const coll = document.getElementsByClassName("cortItem");
     if (coll != collection) {
@@ -71,8 +70,9 @@ const CardInputs = () => {
       setCollection(coll);
       setCost(cos);
     }
-    //Моніторинг та підрахування ціни заказу
   }, 1);
+
+  //Моніторинг та підрахування ціни заказу
   return (
     <form id="paymentForm" className={hide ? "hide" : "visible"}>
       <div
@@ -88,22 +88,28 @@ const CardInputs = () => {
         Адресa:
         <div>
           <IMaskInput
+            className={addressErr ? "error" : ""}
             autoComplete="off"
             id="street"
             mask="Вул.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
             placeholder="Bулиця"
-            onChange={(e: any) => {
-              valid();
+            onInput={(e: any) => {
+              e.target.value.length <= 8
+                ? setAddressErr(true)
+                : setAddressErr(false);
               setAddress(e.target.value);
             }}
           />
           <IMaskInput
+            className={houseErr ? "error" : ""}
             autoComplete="off"
             id="house"
             mask="Буд.0***"
             placeholder="Будинок"
-            onChange={(e: any) => {
-              valid();
+            onInput={(e: any) => {
+              e.target.value.length <= 4
+                ? setHouseErr(true)
+                : setHouseErr(false);
               setHouse(e.target.value);
             }}
           />
@@ -112,61 +118,33 @@ const CardInputs = () => {
       <div>
         Номер телефону:
         <IMaskInput
+          className={numberErr ? "error" : ""}
+          id="numb"
+          value={phoneNumb}
           autoComplete="off"
-          mask="+{380} (00) 000-00-00"
+          mask={"+380 (00) 000-00-00"}
           placeholder="+38"
-          onChange={(e: any) => {
-            valid();
+          onInput={(e: any) => {
+            e.target.value.length != 19
+              ? setNumberErr(true)
+              : setNumberErr(false);
             setPhoneNumb(e.target.value);
           }}
         />
       </div>
       <div>
         Сопсіб оплати:
-        <Select
-          id="select"
-          value={payMeth || "Готівкою"}
-          onChange={(e: any) => {
-            valid();
-            setPayMeth(e.target.value);
-          }}
-        >
-          <MenuItem value={"Готівкою"}>Готівкою</MenuItem>
-          <MenuItem value={"Карткою"}>Карткою</MenuItem>
-          <MenuItem value={"Криптовалютою"}>Криптовалютою</MenuItem>
-        </Select>
+        <Select state={payMeth} setState={setPayMeth} />
       </div>
       <p>Сумма замовлення: {cost.toFixed(1)}$</p>
-      <Button
-        id="buyBtn"
-        onClick={() => {
-          if (isValid) {
-            handleClickOpen();
-          }
-        }}
-      >
-        Замовити
-      </Button>
-      <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>{"Ваше замовленя прийняте на опрацювання"}</DialogTitle>
-        <DialogContent>
-          <DialogContentText>
-            <ul>
-              Ваше замовлення на опрацюванні, за декілька хвилин вам зателефонує
-              наш оператор на номер: {phoneNumb}
-              <br />
-              Адреса: {address} {house}
-              <br />
-              Спосіб оплати замовлення: {payMeth}
-              <br />
-              Ціна: {cost}$
-            </ul>
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose}>Окей</Button>
-        </DialogActions>
-      </Dialog>
+      <Alarm
+        isValid={valid}
+        address={address}
+        house={house}
+        phoneNumb={phoneNumb}
+        payMeth={payMeth}
+        cost={cost}
+      />
     </form>
   );
 };

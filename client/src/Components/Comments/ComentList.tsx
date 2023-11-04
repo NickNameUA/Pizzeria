@@ -7,7 +7,9 @@ import CommentItem from "./CommentItem";
 
 const CommentList = () => {
   const [comments, setComments] = useState("") as any;
+  
   //Створюємо стейт для коментарів
+
   const getComment = async () => {
     await axios
       .get("https://inst-test-9c942bc3025d.herokuapp.com/api/get/comments")
