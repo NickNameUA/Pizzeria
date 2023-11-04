@@ -4,7 +4,6 @@
 
 #emptyCort p {
   text-align: center;
-  font-family: 'Caveat', cursive;
   font-size: 30px;
   color: var(--echoBlue);
 }

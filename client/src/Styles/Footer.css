@@ -12,14 +12,12 @@ footer div {
 footer .text {
   text-decoration: none;
   color: var(--desertStorm);
-  font-style: italic;
 }
 
 footer .category {
   text-decoration: none;
   color: var(--desertStorm);
   text-align: center;
-  font-style: italic;
 }
 
 @media screen and (min-width:1024px) {

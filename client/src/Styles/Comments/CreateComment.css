@@ -11,10 +11,6 @@
   border-radius: 50px;
 }
 
-#createComment * {
-  font-family: 'Caveat', cursive;
-}
-
 #createComment h2 {
   font-size: 31px;
 }
@@ -80,6 +76,7 @@
   display: flex;
   width: 200px;
   transition: all .6s;
+  font-family: 'Bitter', serif;
 }
 
 #createComment button:hover {

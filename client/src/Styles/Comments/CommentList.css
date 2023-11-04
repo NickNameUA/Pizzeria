@@ -20,13 +20,12 @@
 .commentItem p {
   color: var(--iceberg);
   text-align: center;
-  font-family: 'Caveat', cursive;
   font-size: 20px;
   word-break: break-all;
 }
 
 .commentItem p.name {
-  font-size: 30px;
+  font-size: 40px;
 }
 
 .starCon {

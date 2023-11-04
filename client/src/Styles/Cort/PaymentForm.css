@@ -17,7 +17,6 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  font-family: 'Caveat', cursive;
   color: var(--echoBlue);
 }
 
@@ -44,7 +43,6 @@
 }
 
 #paymentForm #select * {
-  font-family: 'Caveat', bolt;
   font-size: 25px;
   color: var(--echoBlue);
   transition: all .4s;
@@ -66,8 +64,6 @@
   font-size: 20px;
   border-radius: 20px;
   width: 100%;
-  font-family: 'Caveat',
-    cursive;
   text-align: center;
   color: var(--echoBlue);
 }
@@ -91,8 +87,8 @@
   margin: 0 auto;
   padding: 4px;
   font-size: 18px;
-  font-family: 'Caveat', cursive;
   transition: all 1s;
+  font-family: 'Bitter', serif;
 }
 
 #paymentForm button:hover {
@@ -104,6 +100,10 @@
 @media screen and (min-width:767px) and (max-width:1024px) {
   :root {
     --form-height: calc(100% - 64px)
+  }
+
+  #paymentForm p {
+    font-size: 20px;
   }
 }
 

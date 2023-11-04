@@ -7,7 +7,6 @@
 
 #map h1 {
   text-align: center;
-  font-family: 'Caveat', cursive;
   color: var(--echoBlue);
 }
 
@@ -33,7 +32,7 @@
   border: double 3px var(--echoBlue);
   border-radius: 20px;
   transition: all 1s;
-  font-family: 'Caveat', cursive;
+  font-family: 'Bitter', serif;
 }
 
 #map #mapBtns button:hover {
@@ -58,7 +57,7 @@
   }
 
   #map h1 {
-    font-size: 30px;
+    font-size: 40px;
   }
 }
 
@@ -69,6 +68,6 @@
   }
 
   #map h1 {
-    font-size: 30px;
+    font-size: 40px;
   }
 }

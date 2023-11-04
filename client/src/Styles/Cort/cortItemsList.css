@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
-
 #cortItemsList {
   display: flex;
   flex-wrap: wrap;
@@ -9,7 +7,7 @@
 
 #cortItemsList h2 {
   margin: 0;
-  font-size: 30px;
+  font-size: 40px;
 }
 
 .cortItem {
@@ -20,7 +18,6 @@
   padding: 10px;
   background-color: var(--pattensBlue);
   display: flex;
-  font-family: 'Caveat', cursive;
   margin: 10px auto;
   min-width: 200px;
   color: var(--echoBlue);
@@ -49,7 +46,7 @@
 }
 
 .cortItem p {
-  font-size: 30px;
+  font-size: 40px;
   margin: 0;
   display: flex;
 }
@@ -69,7 +66,7 @@
 .cortItem .countBtns button {
   width: 35px;
   height: 35px;
-  font-size: 30px;
+  font-size: 40px;
   border-radius: 50%;
   border: 1px solid var(--echoBlue);
   color: var(--echoBlue);
@@ -82,7 +79,7 @@
 }
 
 .cortItem span {
-  font-size: 30px;
+  font-size: 40px;
   margin: auto;
   display: flex;
 }

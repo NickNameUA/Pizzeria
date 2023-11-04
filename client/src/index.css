@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@400&display=swap');
+
 :root {
   --echoBlue: rgb(163, 184, 205);
   --sindad: rgb(176, 209, 216);
@@ -10,6 +12,7 @@
 body {
   margin: 0;
   background-color: var(--desertStorm);
+  font-family: 'Bitter', serif;
 }
 
 @media screen and (min-width:1024px) {
