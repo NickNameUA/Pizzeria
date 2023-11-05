@@ -19,6 +19,15 @@ const CreateComment = () => {
 
   //Створюємо стейти
 
+  const securityTest = (str: string) => {
+    let newStr = str.replace("'<script[^>]*?>.*?</script>'si", "");
+    if (/[<>&'*";/]/.test(newStr)) {
+      return false;
+    } else {
+      return true;
+    }
+  };
+
   const validate = () => {
     if (selected == 0) {
       setStarErr("Oберіть оцінку");
@@ -27,7 +36,9 @@ const CreateComment = () => {
       setNameErr("Введіть ім'я");
     }
     if (name != "" && name.length >= 3 && selected != 0) {
-      return true;
+      if (securityTest(name) && securityTest(text)) {
+        return true;
+      }
     }
   };
 
@@ -39,20 +50,23 @@ const CreateComment = () => {
 
   const submit = async () => {
     if (validate()) {
-      await axios
-        .post(
-          "https://inst-test-9c942bc3025d.herokuapp.com/api/post/create/comment",
-          {
-            name: name,
-            text: text,
-            starCount: selected,
-          }
-        )
-        .catch((err) => console.log(err));
-      setName("");
-      setText("");
-      setSelected(0);
-      window.location.reload();
+      //   await axios
+      //     .post(
+      //       "https://inst-test-9c942bc3025d.herokuapp.com/api/post/create/comment",
+      //       {
+      //         name: name,
+      //         text: text,
+      //         starCount: selected,
+      //       }
+      //     )
+      //     .catch((err) => console.log(err));
+      //   setName("");
+      //   setText("");
+      //   setSelected(0);
+      //   window.location.reload();
+      console.log("Ok");
+    } else {
+      console.log("Err");
     }
   };
 
@@ -130,6 +144,7 @@ const CreateComment = () => {
           <input
             value={name}
             type="text"
+            maxLength={20}
             onChange={(e) => {
               e.target.value.length < 3
                 ? setNameErr("Надто коротке ім'я")
@@ -137,15 +152,18 @@ const CreateComment = () => {
               setName(e.target.value);
             }}
           />
+          <label className="textLen">{name.length + ":20"}</label>
         </div>
         <div id="txtCont">
           <p>Текст коментару:</p>
           <textarea
             value={text}
+            maxLength={500}
             onChange={(e) => {
               setText(e.target.value);
             }}
           />
+          <label className="textLen">{text.length + ":500"}</label>
         </div>
         {starErr != "" && <label>{starErr}</label>}
         <div className="starCon">
