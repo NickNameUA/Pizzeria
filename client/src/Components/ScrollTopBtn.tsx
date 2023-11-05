@@ -15,6 +15,8 @@ const ScrollTopBtn = () => {
     }
   };
 
+  //Перевірка розміщення скрола
+
   const scrollToTop = () => {
     let i = window.scrollY;
     const time = i / 80;
@@ -25,6 +27,8 @@ const ScrollTopBtn = () => {
       }
     }, 1);
   };
+
+  //Функція скрола до 0 за одинаковий відрізок часу для любого значення
 
   return (
     <Button
