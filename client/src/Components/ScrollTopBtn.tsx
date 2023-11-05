@@ -13,7 +13,6 @@ const ScrollTopBtn = () => {
     } else if (window.scrollY < 400 && visiblity) {
       setVisiblity(false);
     }
-    console.log(visiblity);
   };
 
   const scrollToTop = () => {
