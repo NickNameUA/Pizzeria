@@ -38,6 +38,8 @@ const CreateComment = () => {
     if (name != "" && name.length >= 3 && selected != 0) {
       if (securityTest(name) && securityTest(text)) {
         return true;
+      } else {
+        alert("Ви ввели недопустимий символ");
       }
     }
   };
@@ -64,8 +66,6 @@ const CreateComment = () => {
       setText("");
       setSelected(0);
       window.location.reload();
-    } else {
-      alert("Ви ввели недопустимі символи");
     }
   };
 
@@ -151,7 +151,6 @@ const CreateComment = () => {
               setName(e.target.value);
             }}
           />
-          <label className="textLen">{name.length + ":20"}</label>
         </div>
         <div id="txtCont">
           <p>Текст коментару:</p>

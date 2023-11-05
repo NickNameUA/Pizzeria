@@ -7,7 +7,7 @@ import CommentItem from "./CommentItem";
 
 const CommentList = () => {
   const [comments, setComments] = useState("") as any;
-  
+
   //Створюємо стейт для коментарів
 
   const getComment = async () => {
@@ -30,7 +30,17 @@ const CommentList = () => {
   return (
     <div id="commentList">
       {comments != "" &&
-        comments.map((e: any) => <CommentItem key={e._id} data={e} />)}
+        comments
+          .sort((a: any, b: any) => {
+            if (a.StarCount < b.StarCount) {
+              return -1;
+            }
+            if (a.StarCount > b.StarCount) {
+              return 1;
+            }
+            return 0;
+          })
+          .map((e: any) => <CommentItem key={e._id} data={e} />)}
     </div>
   );
 };

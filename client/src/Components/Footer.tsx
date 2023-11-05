@@ -6,7 +6,7 @@ const Footer = () => {
     <footer>
       <div>
         <p className="category">Працюємо</p>
-        <p className="text">З 8 по 23 годину</p>
+        <p className="text">Щодня з 8 до 23 години</p>
       </div>
       <div>
         <p className="category">Адреса</p>
