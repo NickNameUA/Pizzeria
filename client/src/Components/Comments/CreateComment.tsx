@@ -53,14 +53,11 @@ const CreateComment = () => {
   const submit = async () => {
     if (validate()) {
       await axios
-        .post(
-          "https://inst-test-9c942bc3025d.herokuapp.com/api/post/create/comment",
-          {
-            name: name,
-            text: text,
-            starCount: selected,
-          }
-        )
+        .post("https://pizzeria-black.vercel.app/api/post/create/comment", {
+          name: name,
+          text: text,
+          starCount: selected,
+        })
         .catch((err) => console.log(err));
       setName("");
       setText("");

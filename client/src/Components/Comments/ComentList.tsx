@@ -12,7 +12,7 @@ const CommentList = () => {
 
   const getComment = async () => {
     await axios
-      .get("https://inst-test-9c942bc3025d.herokuapp.com/api/get/comments")
+      .get("https://pizzeria-black.vercel.app/api/get/comments")
       .then((res) => {
         setComments(res.data);
       })

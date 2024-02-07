@@ -16,7 +16,7 @@ const CortItemsList = () => {
 
   const getMenu = async () => {
     await axios
-      .get("https://inst-test-9c942bc3025d.herokuapp.com/api/get/menu")
+      .get("https://pizzeria-black.vercel.app/api/get/menu")
       .then((res) => {
         setMenu(res.data);
       })
