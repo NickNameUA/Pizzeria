@@ -58,3 +58,5 @@ app.post("/api/post/create/comment", async function (req, res) {
 app.listen(process.env.PORT, () => {
   console.log("Server started");
 });
+
+module.exports = app;
