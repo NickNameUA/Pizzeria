@@ -19,6 +19,15 @@ const CreateComment = () => {
 
   //Створюємо стейти
 
+  const securityTest = (str: string) => {
+    let newStr = str.replace("'<script[^>]*?>.*?</script>'si", "");
+    if (/[<>&'*";/]/.test(newStr)) {
+      return false;
+    } else {
+      return true;
+    }
+  };
+
   const validate = () => {
     if (selected == 0) {
       setStarErr("Oберіть оцінку");
@@ -27,7 +36,11 @@ const CreateComment = () => {
       setNameErr("Введіть ім'я");
     }
     if (name != "" && name.length >= 3 && selected != 0) {
-      return true;
+      if (securityTest(name) && securityTest(text)) {
+        return true;
+      } else {
+        alert("Ви ввели недопустимий символ");
+      }
     }
   };
 
@@ -130,6 +143,7 @@ const CreateComment = () => {
           <input
             value={name}
             type="text"
+            maxLength={20}
             onChange={(e) => {
               e.target.value.length < 3
                 ? setNameErr("Надто коротке ім'я")
@@ -142,10 +156,12 @@ const CreateComment = () => {
           <p>Текст коментару:</p>
           <textarea
             value={text}
+            maxLength={500}
             onChange={(e) => {
               setText(e.target.value);
             }}
           />
+          <label className="textLen">{text.length + ":500"}</label>
         </div>
         {starErr != "" && <label>{starErr}</label>}
         <div className="starCon">

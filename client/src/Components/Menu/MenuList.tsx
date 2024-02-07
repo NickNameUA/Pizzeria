@@ -73,7 +73,7 @@ const MenuList = () => {
   return (
     <main id="menuList">
       <MenuNav setState={setCtg} />
-      {getMenuCtg("pizzas", "Піцца", pizzas)}
+      {getMenuCtg("pizzas", "Піца", pizzas)}
       {getMenuCtg("drinks", "Напої", drinks)}
       {getMenuCtg("deserts", "Десерти", deserts)}
     </main>

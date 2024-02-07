@@ -13,8 +13,9 @@ const ScrollTopBtn = () => {
     } else if (window.scrollY < 400 && visiblity) {
       setVisiblity(false);
     }
-    console.log(visiblity);
   };
+
+  //Перевірка розміщення скрола
 
   const scrollToTop = () => {
     let i = window.scrollY;
@@ -26,6 +27,8 @@ const ScrollTopBtn = () => {
       }
     }, 1);
   };
+
+  //Функція скрола до 0 за одинаковий відрізок часу для любого значення
 
   return (
     <Button
